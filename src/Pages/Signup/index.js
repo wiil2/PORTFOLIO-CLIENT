@@ -19,7 +19,6 @@ export function Signup() {
         setForm({ ...form, [e.target.name]: e.target.value });
     }
 
-
     async function handleSubmit(e) {
         e.preventDefault();
 
@@ -33,8 +32,6 @@ export function Signup() {
             console.log(error);
         }
     }
-
-
 
     return ( 
     <>
