@@ -26,7 +26,7 @@ export function Signup() {
 
             await api.post("/user/signup", form);
 
-            navigate("/");
+            navigate("/login");
 
         } catch (error) {
             console.log(error);
