@@ -4,6 +4,7 @@ import { Login } from "./Pages/Login";
 import Profile from "./Pages/Profile";
 import { AuthContextComponent } from "./contexts/authContext";
 import UserEdit from "./Pages/UserEdit";
+import "../src/index.css"
 
 
 function App() {
