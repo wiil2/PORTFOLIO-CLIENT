@@ -5,8 +5,11 @@ import { api } from "../../api/api";
 import styled from "styled-components";
 import Fundo from "../Assets/fundo.png"
 import Fundo2 from "../Assets/fundo2.png"
-
-
+import Fundo3 from "../Assets/fundo3.png"
+import Linkedin from "../Assets/linkedin.png"
+import Instagram from "../Assets/insta.png"
+import GitHub from "../Assets/github.png"
+import Whats from "../Assets/wpp.png"
 
 export function Profile() {
 
@@ -97,10 +100,31 @@ export function Profile() {
                         </>
                     )})}
             </div>
-
-
-
+            <SGif>
+                <img src="https://static.wixstatic.com/media/3a5df9_81b94f0536ef4a379857d7195426117c~mv2.gif" alt="gif"/>
+            </SGif>
         </SSection3>
+
+        <SSection4>
+            <h1>entre em contato comigo</h1>
+            <span className="email">meu email é</span> <span className="dev">{loggedInUser.user.email}</span>
+            <p>ou visite alguma das minhas redes abaixo</p>
+            <ul>
+                <a href="https://www.linkedin.com/in/william-berbet/"><li><img src={Linkedin} alt=""/></li></a>
+                <a href="https://www.instagram.com/willnasredes/"><li><img src={Instagram} alt=""/></li></a>
+                <a href="https://github.com/will10iam"><li><img src={Whats} alt=""/></li></a>
+                <a href="https://github.com/will10iam"><li><img src={GitHub} alt=""/></li></a>
+            </ul>
+            <hr></hr>
+            
+        </SSection4>
+
+        <SFooter>
+                <p>VOLTAR AO TOPO?</p>
+                <button onClick={handleLogOut}>SAIR?</button>
+        </SFooter>
+            
+    
     
     </>
 
@@ -160,7 +184,7 @@ background-size: cover;
 `;
 
 const SSection3 = styled.div`
-background-image: url(${Fundo});
+background-image: url(${Fundo2});
 background-size: cover;
 & h1 {
     font-family: 'Mukta';
@@ -173,6 +197,89 @@ background-size: cover;
 }
 
 & .projects {
+    width: 1000px;
+    height: 400px;
+}
+`
+const SSection4 = styled.div`
+background-image: url(${Fundo3});
+background-size: cover;
+height: 700px;
+& h1 {
+    font-family: 'Mukta';
+    color: white;
+    font-size: 90px;
+    margin-left: 40px;
+    margin-bottom: 35px;
+    text-decoration: overline;
+    text-decoration-color: #00F6EF;
+}
+& span {
+    color: white;
+    font-size: 50px;
+    font-family: 'Gantari';
+}
+& .email {
+    margin-left: 40px;
+}
+& .dev {
+    color: #00F6EF;
+    font-family: 'Gantari';
+    font-style: italic;
+}
+& p{
+    color: white;
+    font-family: 'Gantari';
+    font-style: italic;
+    text-align: right;
+    font-size: 50px;
+    margin-right: 25px;
+}
+& ul {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-right: 85px;
+}
+& li {
+    list-style-type: none;
+}
+& img {
+    width: 200px;
+}
+
+& hr {
+  border: 0;
+  height: 2px;
+  background-image: linear-gradient(to right, transparent, #00F6EF, transparent);
+}
+`
+
+const SFooter = styled.div`
+    display: flex;
+    //margin-top: -50px;
+    justify-content: space-evenly;
+    margin-top: -100px;
+    height: 100px;
+& p {
+    color: #FF004F;
+    font-family: 'Gantari';
+    text-transform: lowercase;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}     
+
+& button {
+    background-color: transparent;
+    border: none;
+    color: #00F6EF;
+    font-family: 'Gantari';
+    text-transform: lowercase;
+    font-size: 40px;
+    margin-top: 25px;
+    font-weight: bold;
+    cursor: pointer;
 }
 `
 
@@ -198,6 +305,7 @@ justify-content: space-between;
     font-family: 'Gantari';
     color: white;
     font-style: normal;
+    cursor: pointer;
 }
 & button {
     font-size: 30px;
@@ -207,6 +315,7 @@ justify-content: space-between;
     border: 1px solid #FF004F;
     border-radius: 12px;
     color: white;
+    cursor: pointer;
 }
 `;
 
