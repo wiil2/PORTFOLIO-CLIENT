@@ -1,6 +1,7 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/authContext";
+import { api } from "../../api/api";
 import styled from "styled-components";
 import Fundo from "../Assets/fundo.png"
 import Fundo2 from "../Assets/fundo2.png"
@@ -9,8 +10,25 @@ import Fundo2 from "../Assets/fundo2.png"
 
 export function Profile() {
 
-    const navigate = useNavigate();
+    const [projects, setProjects] = useState([]);
+    const Context = useContext(AuthContext);
     const {loggedInUser} = useContext(AuthContext);
+    const navigate = useNavigate();
+    
+    useEffect (() => {
+        async function fetchProjects() {
+            const response = await api.get("/projects/all-projects");
+            setProjects(response.data) 
+        }
+        fetchProjects();
+    }, []);
+
+    const filteredProjects = projects.filter((elemento) => {
+        if(elemento.user !== Context.loggedInUser.user._id) {
+            return elemento
+        }
+
+    })
 
     function handleLogOut() {
         localStorage.removeItem("loggedInUser");
@@ -22,10 +40,10 @@ export function Profile() {
     //}
 
 
+    
+
     return (
     <>
-
-
         <SSection1>
             <SHeader>
                 <div>
@@ -49,9 +67,40 @@ export function Profile() {
         </SSection1>
 
         <SSection2>
-
-            <h1> TESTE TESTE TESTE</h1>
+            <h1> um pouco sobre mim...</h1>
+            <p> sobre mim sobre mim sobre mim sobre mim sobre mim sobre mim sobre mim sobre mim sobre mim sobre mim 
+                sobre mim sobre mim sobre mim sobre mim sobre mim sobre mim sobre mim sobre mim sobre mim sobre mim 
+                sobre mim sobre mim sobre mim sobre mim sobre mim sobre mim sobre mim sobre mim sobre mim sobre mim 
+                sobre mim sobre mim sobre mim sobre mim sobre mim sobre mim sobre mim sobre mim sobre mim sobre mim
+            </p>
+            <SGif>
+                <img src="https://static.wixstatic.com/media/3a5df9_81b94f0536ef4a379857d7195426117c~mv2.gif" alt="gif"/>
+            </SGif>
         </SSection2>
+
+        <SSection3>
+            <h1>meus projetos</h1>
+            <div className="projects">
+                { 
+                    filteredProjects.map((currentProjects) => {
+                        const { name, language, tags, img } = currentProjects;
+                    return (
+                        <>
+                            <div>
+                                { tags.includes("FINISHED") ? <img src={img} alt=""/> : null }
+                                { tags.includes("IN PROGRESS") ? <img src={img} alt=""/> : null }
+                                <div>
+                                    <h2>{name}</h2>
+                                    <h3>{language}</h3>
+                                </div>
+                            </div>
+                        </>
+                    )})}
+            </div>
+
+
+
+        </SSection3>
     
     </>
 
@@ -65,8 +114,8 @@ export default Profile;
 
 
 const SSection1 = styled.div`
-background-image: url(${Fundo});
-background-size: cover;
+//background-image: url(${Fundo});
+//background-size: cover;
 & .front {
     color: #00F6EF;
     font-family: 'Gantari';
@@ -92,7 +141,40 @@ background-size: cover;
 
 const SSection2 = styled.div`
 background-image: url(${Fundo2});
+background-size: cover;
+& h1 {
+    font-family: 'Mukta';
+    color: white;
+    font-size: 90px;
+    margin-left: 40px;
+    margin-bottom: -35px;
+    text-decoration: overline;
+    text-decoration-color: #FF004F;
+}
+& p {
+    font-size: 35px;
+    font-family: 'Gantari';
+    color: white;
+    margin-left: 40px;
+}
 `;
+
+const SSection3 = styled.div`
+background-image: url(${Fundo});
+background-size: cover;
+& h1 {
+    font-family: 'Mukta';
+    color: white;
+    font-size: 90px;
+    margin-left: 40px;
+    margin-bottom: -35px;
+    text-decoration: overline;
+    text-decoration-color: #00F6EF;
+}
+
+& .projects {
+}
+`
 
 const SHeader = styled.div`
 display: flex;
@@ -134,7 +216,4 @@ const SGif = styled.div`
     width: 80px;
     margin-top: 50px;
 }
-
-
-
 `
