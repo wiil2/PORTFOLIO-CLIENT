@@ -126,14 +126,32 @@ export function Profile() {
 
         <SSection4 id="contato">
             <h1>entre em contato comigo</h1>
-            <span className="email">meu email é</span> <span className="dev">{loggedInUser.user.email}</span>
-            <p>ou visite alguma das minhas redes abaixo</p>
-            <ul>
-                <a href="https://www.linkedin.com/in/william-berbet/"><li><img src={Linkedin} alt=""/></li></a>
-                <a href="https://www.instagram.com/willnasredes/"><li><img src={Instagram} alt=""/></li></a>
-                <a target="blank" href={`https://api.whatsapp.com/send?1=pt_BR&phone=55${loggedInUser.user.phone}`}><li><img src={Whats} alt=""/></li></a>
-                <a href="https://github.com/will10iam"><li><img src={GitHub} alt=""/></li></a>
-            </ul>
+            <p>Estou interessado em {loggedInUser.user.interests}. Mas se tiver outra solicitação ou pergunta, preenche o formulário abaixo:</p>
+            
+            <div className="bottom">
+
+                <form className="forms">
+                    <div className="form1">
+                        <input type="text" name="name" placeholder="seu nome"/>
+                        <input type="email" name="email" placeholder="seu email"/>
+                    </div>
+                    <div className="form2">
+                        <input type="subject" name="subject" placeholder="qual o assunto?"/>
+                    </div>
+                    <div className="textarea">
+                        <textarea name="message" placeholder="digite aqui sua mensagem"/>
+                    </div>
+                    <input type="submit" value="Enviar"/>
+                    <input type="reset" value="Limpar"/>
+                </form>
+
+                <ul>
+                    <a href="https://www.linkedin.com/in/william-berbet/"><li><img src={Linkedin} alt=""/></li></a>
+                    <a href="https://www.instagram.com/willnasredes/"><li><img src={Instagram} alt=""/></li></a>
+                    <a target="blank" href={`https://api.whatsapp.com/send?1=pt_BR&phone=55${loggedInUser.user.phone}`}><li><img src={Whats} alt=""/></li></a>
+                    <a href="https://github.com/will10iam"><li><img src={GitHub} alt=""/></li></a>
+                </ul>
+            </div>
             <hr></hr>
             
         </SSection4>
@@ -219,6 +237,16 @@ const SSection2 = styled.div`
     color: #FAEAA7;
     margin-left: 40px;
 }
+& button {
+    font-size: 20px;
+    margin-left: 25px;
+    font-family: 'Gantari';
+    background-color: #FF004F;
+    border: 1px solid #FF004F;
+    border-radius: 12px;
+    color: #FAEAA7;
+    cursor: pointer;
+}
 `;
 const SSection3 = styled.div`
 //background-image: url(${Fundo2});
@@ -246,30 +274,58 @@ height: 700px;
     color: #FAEAA7;
     font-size: 90px;
     margin-left: 40px;
-    margin-bottom: 35px;
+    margin-bottom: 5px;
     text-decoration: overline;
     text-decoration-color: #00F6EF;
-}
-& span {
-    color: #FAEAA7;
-    font-size: 50px;
-    font-family: 'Gantari';
-}
-& .email {
-    margin-left: 40px;
-}
-& .dev {
-    color: #00F6EF;
-    font-family: 'Gantari';
-    font-style: italic;
 }
 & p{
     color: #FAEAA7;
     font-family: 'Gantari';
     font-style: italic;
-    text-align: right;
-    font-size: 50px;
-    margin-right: 25px;
+    text-align: left;
+    font-size: 30px;
+    margin-left: 40px;
+}
+& .bottom {
+    display: flex;
+    justify-content: space-between;
+}
+& .forms {  
+    margin-left: 40px;
+}
+& .form1 input {
+    margin: 2px;
+    width: 317px;
+    height: 50px;
+    ::placeholder {
+      font-size: 17px;
+      color: #5D5E5F;
+      font-weight:bolder;
+      font-style: italic;
+      padding-left: 10px;
+    }
+}
+& .form2 input {
+    margin: 2px;
+    width: 646px;
+    height: 50px;
+    ::placeholder {
+      font-size: 17px;
+      color: #5D5E5F;
+      font-weight:bolder;
+      font-style: italic;
+      padding-left: 10px;
+    }
+}
+& .textarea textarea {
+    margin: 2px;
+    ::placeholder {
+      font-size: 17px;
+      color: #5D5E5F;
+      font-weight:bolder;
+      font-style: italic;
+      padding-left: 10px;
+    }
 }
 & ul {
     display: flex;
@@ -281,7 +337,7 @@ height: 700px;
     list-style-type: none;
 }
 & img {
-    width: 200px;
+    width: 100px;
 }
 & hr {
   border: 0;
@@ -292,7 +348,7 @@ height: 700px;
 const SFooter = styled.div`
     display: flex;
     justify-content: space-evenly;
-    margin-top: -60px;
+    //margin-top: -150px;
     height: 50px;
 & a {
     color: #FF004F;
