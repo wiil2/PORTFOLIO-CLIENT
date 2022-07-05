@@ -17,6 +17,7 @@ export function Profile() {
     const Context = useContext(AuthContext);
     const {loggedInUser} = useContext(AuthContext);
     const navigate = useNavigate();
+    const [ pageYPosition, setPageYPosition ] = useState(0);
     
     useEffect (() => {
         async function fetchProjects() {
@@ -42,11 +43,15 @@ export function Profile() {
         //navigate("/userEdit")
     //}
 
+    function getPageYAfterScroll() {
+        setPageYPosition(window.scrollY);
+    }
 
+    window.addEventListener('scroll', getPageYAfterScroll);
     
 
     return (
-    <>
+    <div id="container">
         <SSection1>
             <SHeader>
                 <div>
@@ -112,7 +117,7 @@ export function Profile() {
             <ul>
                 <a href="https://www.linkedin.com/in/william-berbet/"><li><img src={Linkedin} alt=""/></li></a>
                 <a href="https://www.instagram.com/willnasredes/"><li><img src={Instagram} alt=""/></li></a>
-                <a href="https://github.com/will10iam"><li><img src={Whats} alt=""/></li></a>
+                <a target="_blank" href={`https://api.whatsapp.com/send?1=pt_BR&phone=55${loggedInUser.user.phone}`}><li><img src={Whats} alt=""/></li></a>
                 <a href="https://github.com/will10iam"><li><img src={GitHub} alt=""/></li></a>
             </ul>
             <hr></hr>
@@ -120,13 +125,13 @@ export function Profile() {
         </SSection4>
 
         <SFooter>
-                <p>VOLTAR AO TOPO?</p>
-                <button onClick={handleLogOut}>SAIR?</button>
+            { pageYPosition > 900 && <a href="#container">VOLTAR AO TOPO</a> }
+            <button onClick={handleLogOut}>SAIR?</button>
         </SFooter>
             
     
     
-    </>
+    </div>
 
     )
 }
@@ -257,17 +262,17 @@ height: 700px;
 
 const SFooter = styled.div`
     display: flex;
-    //margin-top: -50px;
     justify-content: space-evenly;
-    margin-top: -100px;
-    height: 100px;
-& p {
+    margin-top: -60px;
+    height: 50px;
+& a {
     color: #FF004F;
     font-family: 'Gantari';
     text-transform: lowercase;
     font-size: 40px;
     font-weight: bold;
     cursor: pointer;
+    text-decoration: none;
 }     
 
 & button {
@@ -277,7 +282,6 @@ const SFooter = styled.div`
     font-family: 'Gantari';
     text-transform: lowercase;
     font-size: 40px;
-    margin-top: 25px;
     font-weight: bold;
     cursor: pointer;
 }
@@ -290,6 +294,9 @@ justify-content: space-between;
   width: 200px;
   margin-top: 10px;
   margin-left: 20px;
+  border-left: solid 3px #FF004F;
+  border-right: solid 3px #00F6EF;
+  border-radius: 100px;
 }
 & ul {
     display: flex;
