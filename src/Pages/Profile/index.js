@@ -5,11 +5,12 @@ import { api } from "../../api/api";
 import styled from "styled-components";
 import Fundo from "../Assets/fundo.png"
 import Fundo2 from "../Assets/fundo2.png"
-import Fundo3 from "../Assets/fundo3.png"
+import Section4 from "../Assets/fundofooter.png"
 import Linkedin from "../Assets/linkedin.png"
 import Instagram from "../Assets/insta.png"
 import GitHub from "../Assets/github.png"
 import Whats from "../Assets/wpp.png"
+import Edit from "../Assets/edit.png"
 
 export function Profile() {
 
@@ -33,7 +34,7 @@ export function Profile() {
         }
 
     })
-
+    console.log(loggedInUser.user)
     function handleLogOut() {
         localStorage.removeItem("loggedInUser");
         navigate("/login")
@@ -59,15 +60,18 @@ export function Profile() {
                 </div>
 
                 <ul>
-                    <li>Sobre Mim</li>
                     <li>Projetos</li>
                     <li>Contato</li>
+                </ul>
+
+                <ul>
+                    <li>Editar Perfil</li>
                     <button onClick={handleLogOut}>SAIR</button>
                 </ul>
             </SHeader>
 
             <h1>Oi, eu sou o {loggedInUser.user.name}! </h1>
-            <span className="front">front end</span> <span className="dev">developer</span>
+            <span className="front">{loggedInUser.user.denomination}</span> <span className="dev">developer</span>
 
             <SGif>
                 <img src="https://static.wixstatic.com/media/3a5df9_81b94f0536ef4a379857d7195426117c~mv2.gif" alt="gif"/>
@@ -75,12 +79,22 @@ export function Profile() {
         </SSection1>
 
         <SSection2>
-            <h1> um pouco sobre mim...</h1>
-            <p> sobre mim sobre mim sobre mim sobre mim sobre mim sobre mim sobre mim sobre mim sobre mim sobre mim 
-                sobre mim sobre mim sobre mim sobre mim sobre mim sobre mim sobre mim sobre mim sobre mim sobre mim 
-                sobre mim sobre mim sobre mim sobre mim sobre mim sobre mim sobre mim sobre mim sobre mim sobre mim 
-                sobre mim sobre mim sobre mim sobre mim sobre mim sobre mim sobre mim sobre mim sobre mim sobre mim
-            </p>
+            <div className="header1">
+                <h1> um pouco sobre mim...</h1>
+                <img src={Edit} alt=""/>
+            </div>
+            <div className="middle">
+                <div>
+                    <h2> {loggedInUser.user.name}, {loggedInUser.user.age}</h2>
+                    <p>  {loggedInUser.user.description} </p>
+                    <p>Vamos fazer algo legal juntos?</p>
+                </div>
+                <div>
+                    <h2>Habilidades</h2>
+                    <p>{loggedInUser.user.skills}</p>
+                    <button>MEU CURRÍCULO</button>
+                </div>
+            </div>
             <SGif>
                 <img src="https://static.wixstatic.com/media/3a5df9_81b94f0536ef4a379857d7195426117c~mv2.gif" alt="gif"/>
             </SGif>
@@ -110,14 +124,14 @@ export function Profile() {
             </SGif>
         </SSection3>
 
-        <SSection4>
+        <SSection4 id="contato">
             <h1>entre em contato comigo</h1>
             <span className="email">meu email é</span> <span className="dev">{loggedInUser.user.email}</span>
             <p>ou visite alguma das minhas redes abaixo</p>
             <ul>
                 <a href="https://www.linkedin.com/in/william-berbet/"><li><img src={Linkedin} alt=""/></li></a>
                 <a href="https://www.instagram.com/willnasredes/"><li><img src={Instagram} alt=""/></li></a>
-                <a target="_blank" href={`https://api.whatsapp.com/send?1=pt_BR&phone=55${loggedInUser.user.phone}`}><li><img src={Whats} alt=""/></li></a>
+                <a target="blank" href={`https://api.whatsapp.com/send?1=pt_BR&phone=55${loggedInUser.user.phone}`}><li><img src={Whats} alt=""/></li></a>
                 <a href="https://github.com/will10iam"><li><img src={GitHub} alt=""/></li></a>
             </ul>
             <hr></hr>
@@ -140,8 +154,6 @@ export default Profile;
 
 
 // =========================== STYLES ============================= // 
-
-
 const SSection1 = styled.div`
 //background-image: url(${Fundo});
 //background-size: cover;
@@ -161,58 +173,77 @@ const SSection1 = styled.div`
 }
 & h1 {
     font-family: 'Mukta';
-    color: white;
+    color: #FAEAA7;
     font-size: 90px;
     margin-left: 40px;
     margin-bottom: -35px;
 }
 `;
-
 const SSection2 = styled.div`
-background-image: url(${Fundo2});
-background-size: cover;
+//background-image: url(${Fundo2});
+//background-size: cover;
+
+& .header1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+& .header1 img {
+    width: 80px;
+    height: 80px;
+}
+
+& .middle {
+    display: flex;
+    justify-content: space-between;
+}
 & h1 {
     font-family: 'Mukta';
-    color: white;
+    color: #FAEAA7;
     font-size: 90px;
     margin-left: 40px;
     margin-bottom: -35px;
     text-decoration: overline;
     text-decoration-color: #FF004F;
 }
-& p {
+& h2 {
     font-size: 35px;
     font-family: 'Gantari';
-    color: white;
+    color: #00F6EF;
+    margin-left: 40px;
+}
+& p {
+    font-size: 25px;
+    font-family: 'Gantari';
+    color: #FAEAA7;
     margin-left: 40px;
 }
 `;
-
 const SSection3 = styled.div`
-background-image: url(${Fundo2});
-background-size: cover;
+//background-image: url(${Fundo2});
+//background-size: cover;
 & h1 {
     font-family: 'Mukta';
-    color: white;
+    color: #FAEAA7;
     font-size: 90px;
     margin-left: 40px;
     margin-bottom: -35px;
     text-decoration: overline;
     text-decoration-color: #00F6EF;
 }
-
 & .projects {
-    width: 1000px;
-    height: 400px;
+    //width: 1000px;
+    //height: 400px;
 }
 `
 const SSection4 = styled.div`
-background-image: url(${Fundo3});
+background-image: url(${Section4});
 background-size: cover;
 height: 700px;
 & h1 {
     font-family: 'Mukta';
-    color: white;
+    color: #FAEAA7;
     font-size: 90px;
     margin-left: 40px;
     margin-bottom: 35px;
@@ -220,7 +251,7 @@ height: 700px;
     text-decoration-color: #00F6EF;
 }
 & span {
-    color: white;
+    color: #FAEAA7;
     font-size: 50px;
     font-family: 'Gantari';
 }
@@ -233,7 +264,7 @@ height: 700px;
     font-style: italic;
 }
 & p{
-    color: white;
+    color: #FAEAA7;
     font-family: 'Gantari';
     font-style: italic;
     text-align: right;
@@ -252,14 +283,12 @@ height: 700px;
 & img {
     width: 200px;
 }
-
 & hr {
   border: 0;
   height: 2px;
   background-image: linear-gradient(to right, transparent, #00F6EF, transparent);
 }
 `
-
 const SFooter = styled.div`
     display: flex;
     justify-content: space-evenly;
@@ -274,7 +303,6 @@ const SFooter = styled.div`
     cursor: pointer;
     text-decoration: none;
 }     
-
 & button {
     background-color: transparent;
     border: none;
@@ -286,7 +314,6 @@ const SFooter = styled.div`
     cursor: pointer;
 }
 `
-
 const SHeader = styled.div`
 display: flex;
 justify-content: space-between;
@@ -310,7 +337,7 @@ justify-content: space-between;
     list-style-type: none;
     font-size: 35px;
     font-family: 'Gantari';
-    color: white;
+    color: #FAEAA7;
     font-style: normal;
     cursor: pointer;
 }
@@ -321,11 +348,10 @@ justify-content: space-between;
     background-color: #FF004F;
     border: 1px solid #FF004F;
     border-radius: 12px;
-    color: white;
+    color: #FAEAA7;
     cursor: pointer;
 }
 `;
-
 const SGif = styled.div`
  text-align: center;
 & img {
