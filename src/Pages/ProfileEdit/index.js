@@ -67,7 +67,7 @@ export function ProfileEdit() {
 
                 <form onSubmit={handleSubmit}>
                     <div className="forms1">
-                        <input id="formName"
+                        <input id="formName"    
                             name="name"
                             type="text" 
                             value={form.name}
@@ -128,7 +128,7 @@ export function ProfileEdit() {
                             placeholder="Your Description" 
                         />
                     </div>
-                    <div className="selects">
+                     <div className="selects">
                         <h3>Redes Sociais</h3>
                         <div>
                             <select onClick={handleChange} name="tags">
@@ -137,7 +137,7 @@ export function ProfileEdit() {
                                 <option  value="Github">GitHub</option>
                                 <option  value="WhatsApp">WhatsApp</option>
                             </select>
-                            <input type="text" name="link" placeholder="insira o link aqui"/>
+                            <input id="formTags" name="tags" type="text" value={form.tags} onChange={handleChange} placeholder="insira o link aqui"/>
                         </div>
                         <div>
                             <select onClick={handleChange} name="tags">
@@ -146,7 +146,7 @@ export function ProfileEdit() {
                                 <option  value="Github">GitHub</option>
                                 <option  value="WhatsApp">WhatsApp</option>
                             </select>
-                            <input type="text" name="link" placeholder="insira o link aqui"/>
+                            <input id="formTags" name="tags" type="text" value={form.tags} onChange={handleChange}  placeholder="insira o link aqui"/>
                         </div>
                         <div>
                             <select onClick={handleChange} name="tags">
@@ -155,7 +155,7 @@ export function ProfileEdit() {
                                 <option  value="Github">GitHub</option>
                                 <option  value="WhatsApp">WhatsApp</option>
                             </select>
-                            <input type="text" name="link" placeholder="insira o link aqui"/>
+                            <input id="formTags" name="tags" type="text" value={form.tags} onChange={handleChange} placeholder="insira o link aqui"/>
                         </div>
                         <div>
                             <select onClick={handleChange} name="tags">
@@ -164,9 +164,14 @@ export function ProfileEdit() {
                                 <option  value="Github">GitHub</option>
                                 <option  value="WhatsApp">WhatsApp</option>
                             </select>
-                            <input type="text" name="link" placeholder="insira o link aqui"/>
+                            <input id="formTags" name="tags" type="text" value={form.tags} onChange={handleChange} placeholder="insira o link aqui"/>
                         </div>
                     </div>
+                    <div className="buttons">
+                    <button type="submit">CONFIRM</button>
+                    <button onClick={deleteUser}>DELETE PROFILE</button>
+                </div>
+
                 </form>
 
                 <div className="photo">
@@ -174,13 +179,11 @@ export function ProfileEdit() {
                     <button>Change Photo</button>
                 </div>
 
+                
+
             </SMiddle>
 
-            <div className="buttons">
-                <button type="submit">CONFIRM</button>
-                <button onClick={deleteUser}>DELETE PROFILE</button>
-            </div>
-
+                
             
     </SContainer>
   

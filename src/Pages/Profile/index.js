@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/authContext";
 import { api } from "../../api/api";
 import styled from "styled-components";
@@ -65,7 +65,7 @@ export function Profile() {
                 </ul>
 
                 <ul>
-                    <li>Editar Perfil</li>
+                    <Link to="/profileEdit"><li>Editar Perfil</li></Link>
                     <button onClick={handleLogOut}>SAIR</button>
                 </ul>
             </SHeader>
@@ -455,6 +455,9 @@ justify-content: space-between;
     border-radius: 12px;
     color: #FAEAA7;
     cursor: pointer;
+}
+& a {
+    text-decoration: none;
 }
 `;
 const SGif = styled.div`
