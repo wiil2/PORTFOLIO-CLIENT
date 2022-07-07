@@ -89,7 +89,7 @@ export function Profile() {
                     <p>  {loggedInUser.user.description} </p>
                     <p>Vamos fazer algo legal juntos?</p>
                 </div>
-                <div>
+                <div className="skills">
                     <h2>Habilidades</h2>
                     <p>{loggedInUser.user.skills}</p>
                     <button>MEU CURRÍCULO</button>
@@ -130,7 +130,7 @@ export function Profile() {
             
             <div className="bottom">
 
-                <form className="forms">
+                <form action={`https://formsubmit.co/${loggedInUser.user.email}`} method="POST" className="forms">
                     <div className="form1">
                         <input type="text" name="name" placeholder="seu nome"/>
                         <input type="email" name="email" placeholder="seu email"/>
@@ -145,12 +145,16 @@ export function Profile() {
                     <input type="reset" value="Limpar"/>
                 </form>
 
-                <ul>
-                    <a href="https://www.linkedin.com/in/william-berbet/"><li><img src={Linkedin} alt=""/></li></a>
-                    <a href="https://www.instagram.com/willnasredes/"><li><img src={Instagram} alt=""/></li></a>
-                    <a target="blank" href={`https://api.whatsapp.com/send?1=pt_BR&phone=55${loggedInUser.user.phone}`}><li><img src={Whats} alt=""/></li></a>
-                    <a href="https://github.com/will10iam"><li><img src={GitHub} alt=""/></li></a>
-                </ul>
+                <div>
+                    <p>VISITE MINHAS REDES SOCIAIS</p>
+                    <ul>
+                        <a href="https://www.linkedin.com/in/william-berbet/"><li><img src={Linkedin} alt=""/></li></a>
+                        <a href="https://www.instagram.com/willnasredes/"><li><img src={Instagram} alt=""/></li></a>
+                        <a target="blank" href={`https://api.whatsapp.com/send?1=pt_BR&phone=55${loggedInUser.user.phone}`}><li><img src={Whats} alt=""/></li></a>
+                        <a href="https://github.com/will10iam"><li><img src={GitHub} alt=""/></li></a>
+                    </ul>
+                </div>
+
             </div>
             <hr></hr>
             
@@ -216,6 +220,13 @@ const SSection2 = styled.div`
     display: flex;
     justify-content: space-between;
 }
+& .skills {
+    margin-right: 75px;
+}
+& .skills h2 {
+    color: #FF004F;
+    text-decoration: none;
+}
 & h1 {
     font-family: 'Mukta';
     color: #FAEAA7;
@@ -267,14 +278,14 @@ const SSection3 = styled.div`
 `
 const SSection4 = styled.div`
 background-image: url(${Section4});
-background-size: cover;
-height: 700px;
+background-size: auto;
+height: 600px;
 & h1 {
     font-family: 'Mukta';
     color: #FAEAA7;
     font-size: 90px;
     margin-left: 40px;
-    margin-bottom: 5px;
+    margin-bottom: -25px;
     text-decoration: overline;
     text-decoration-color: #00F6EF;
 }
@@ -283,63 +294,102 @@ height: 700px;
     font-family: 'Gantari';
     font-style: italic;
     text-align: left;
-    font-size: 30px;
+    font-size: 20px;
     margin-left: 40px;
+    margin-bottom: 75px;
 }
 & .bottom {
     display: flex;
     justify-content: space-between;
 }
+& .bottom p {
+    text-align: center;
+    margin-bottom: -12px;
+    font-size: 25px;
+}
 & .forms {  
     margin-left: 40px;
 }
+& .forms input {
+    font-size: 20px;
+    margin: 3px;
+    border: 1px solid #FAEAA7;
+    background-color: transparent;
+    color: #FAEAA7;
+    font-family: 'Gantari';
+    font-size: 20px;
+    border-radius: 15px;
+
+
+}
 & .form1 input {
-    margin: 2px;
-    width: 317px;
+    margin: 5px;
+    width: 310px;
     height: 50px;
+    background-color: #14202E;
+    border: 1px solid #14202E;
+    padding-left: 10px;
     ::placeholder {
       font-size: 17px;
-      color: #5D5E5F;
-      font-weight:bolder;
+      color: #FAEAA7;
       font-style: italic;
       padding-left: 10px;
+      opacity: 0.5;
+      font-family: 'Gantari';
     }
 }
 & .form2 input {
-    margin: 2px;
-    width: 646px;
+    margin: 5px;
+    width: 643px;
     height: 50px;
+    background-color: #14202E;
+    border: 1px solid #14202E;
+    padding-left: 10px;
     ::placeholder {
       font-size: 17px;
-      color: #5D5E5F;
-      font-weight:bolder;
+      color: #FAEAA7;
       font-style: italic;
       padding-left: 10px;
+      opacity: 0.5;
+      font-family: 'Gantari';
     }
 }
 & .textarea textarea {
-    margin: 2px;
+    margin: 5px;
+    resize: none;
+    width: 643px;
+    height: 150px;
+    background-color: #14202E;
+    border: 1px solid #14202E;
+    border-radius: 15px;
+    color: #FAEAA7;
+    font-family: 'Gantari';
+    font-size: 20px;
+    padding-left: 10px;
     ::placeholder {
       font-size: 17px;
-      color: #5D5E5F;
-      font-weight:bolder;
+      color: #FAEAA7;
       font-style: italic;
       padding-left: 10px;
+      opacity: 0.5;
+      font-family: 'Gantari';
     }
 }
 & ul {
+    //margin-top: -25px;
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: center;
     margin-right: 85px;
 }
 & li {
     list-style-type: none;
 }
 & img {
-    width: 100px;
+    width: 120px;
 }
 & hr {
+  margin-top: 20px;
   border: 0;
   height: 2px;
   background-image: linear-gradient(to right, transparent, #00F6EF, transparent);
@@ -349,7 +399,6 @@ const SFooter = styled.div`
     display: flex;
     justify-content: space-evenly;
     //margin-top: -150px;
-    height: 50px;
 & a {
     color: #FF004F;
     font-family: 'Gantari';

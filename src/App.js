@@ -3,7 +3,7 @@ import { Signup } from "./Pages/Signup";
 import { Login } from "./Pages/Login";
 import Profile from "./Pages/Profile";
 import { AuthContextComponent } from "./contexts/authContext";
-import UserEdit from "./Pages/UserEdit";
+import ProfileEdit from "./Pages/ProfileEdit";
 import "../src/index.css"
 
 
@@ -16,7 +16,7 @@ function App() {
           <Route path="/signup" element= { <Signup/> } />
           <Route path="/login"  element= { <Login/>  } />
           <Route path="/profile" element= { <Profile/> } />
-          <Route path="/userEdit" element= {<UserEdit/> } />
+          <Route path="/profileEdit" element= {<ProfileEdit/> } />
         </Routes>
       </AuthContextComponent>
     </>
