@@ -34,7 +34,7 @@ export function Profile() {
         }
 
     })
-    console.log(loggedInUser.user)
+    
     function handleLogOut() {
         localStorage.removeItem("loggedInUser");
         navigate("/login")

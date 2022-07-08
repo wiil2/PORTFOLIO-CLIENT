@@ -71,35 +71,35 @@ export function ProfileEdit() {
                         <input id="formName"    
                             name="name"
                             type="text" 
-                            /* value={form.name} */
+                            value={form.name}
                             onChange={handleChange} 
                             placeholder="Your Name" 
                         />
                         <input id="formEmail"
                             name="email"
                             type="email" 
-                            /* value={form.email} */
+                            value={form.email}
                             onChange={handleChange} 
                             placeholder="Your E-mail" 
                         />
                         <input id="formCityState"
                             name="citystate"
                             type="text" 
-                            /* value={form.citystate} */
+                            value={form.citystate}
                             onChange={handleChange} 
                             placeholder="Your City And State" 
                         />
                         <input id="formPhone"
                             name="Phone"
                             type="text" 
-                            /* value={form.phone} */
+                            value={form.phone}
                             onChange={handleChange} 
                             placeholder="Your Phone" 
                         />
                             <input id="formAge"
                             name="Age"
                             type="text" 
-                            /* value={form.age} */
+                            value={form.age}
                             onChange={handleChange} 
                             placeholder="Your Age" 
                         />
@@ -108,14 +108,14 @@ export function ProfileEdit() {
                         <input id="formDenomination"
                             name="Denomination"
                             type="text" 
-                            /* value={form.denomination} */
+                            value={form.denomination}
                             onChange={handleChange} 
                             placeholder="Your Denomination" 
                         />
                         <input id="formInterests"
                             name="Interests"
                             type="text" 
-                            /* value={form.interests} */
+                            value={form.interests}
                             onChange={handleChange} 
                             placeholder="Your Interests" 
                         />
@@ -124,7 +124,7 @@ export function ProfileEdit() {
                         <textarea id="formDescription"
                             name="Description"
                             type="text" 
-                            /* value={form.description} */
+                            value={form.description}
                             onChange={handleChange} 
                             placeholder="Your Description" 
                         />
@@ -138,7 +138,7 @@ export function ProfileEdit() {
                                 <option  value="Github">GitHub</option>
                                 <option  value="WhatsApp">WhatsApp</option>
                             </select>
-                            <input id="formTags" name="tags" type="text" /* value={form.tags} */ onChange={handleChange} placeholder="insira o link aqui"/>
+                            <input id="formTags" name="tags" type="text" value={form.tags} onChange={handleChange} placeholder="insira o link aqui"/>
                         </div>
                         <div>
                             <select onClick={handleChange} name="tags">
@@ -147,7 +147,7 @@ export function ProfileEdit() {
                                 <option  value="Github">GitHub</option>
                                 <option  value="WhatsApp">WhatsApp</option>
                             </select>
-                            <input id="formTags" name="tags" type="text" /* value={form.tags} */ onChange={handleChange}  placeholder="insira o link aqui"/>
+                            <input id="formTags" name="tags" type="text" value={form.tags} onChange={handleChange}  placeholder="insira o link aqui"/>
                         </div>
                         <div>
                             <select onClick={handleChange} name="tags">
@@ -156,7 +156,7 @@ export function ProfileEdit() {
                                 <option  value="Github">GitHub</option>
                                 <option  value="WhatsApp">WhatsApp</option>
                             </select>
-                            <input id="formTags" name="tags" type="text" /* value={form.tags}  */ onChange={handleChange} placeholder="insira o link aqui"/>
+                            <input id="formTags" name="tags" type="text" value={form.tags} onChange={handleChange} placeholder="insira o link aqui"/>
                         </div>
                         <div>
                             <select onClick={handleChange} name="tags">
@@ -165,7 +165,7 @@ export function ProfileEdit() {
                                 <option  value="Github">GitHub</option>
                                 <option  value="WhatsApp">WhatsApp</option>
                             </select>
-                            <input id="formTags" name="tags" type="text" /* value={form.tags} */ onChange={handleChange} placeholder="insira o link aqui"/>
+                            <input id="formTags" name="tags" type="text" value={form.tags} onChange={handleChange} placeholder="insira o link aqui"/>
                         </div>
                     </div>
                     <div className="buttons">
