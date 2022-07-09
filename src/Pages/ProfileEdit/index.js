@@ -45,6 +45,7 @@ export function ProfileEdit() {
 
     (async () => {
       try {
+        console.log(form)
         await api.patch("/user/update-profile", { ...form });
         navigate("/profile");
       } catch (err) {
@@ -73,7 +74,7 @@ export function ProfileEdit() {
                 id="formName"
                 name="name"
                 type="text"
-                value={form.name}
+                value={form.name || ''}
                 onChange={handleChange}
                 placeholder="Your Name"
               />
@@ -81,7 +82,7 @@ export function ProfileEdit() {
                 id="formEmail"
                 name="email"
                 type="email"
-                value={form.email}
+                value={form.email || ''}
                 onChange={handleChange}
                 placeholder="Your E-mail"
               />
@@ -89,23 +90,23 @@ export function ProfileEdit() {
                 id="formCityState"
                 name="citystate"
                 type="text"
-                value={form.citystate}
+                value={form.citystate || ''}
                 onChange={handleChange}
                 placeholder="Your City And State"
               />
               <input
                 id="formPhone"
-                name="Phone"
+                name="phone"
                 type="text"
-                value={form.phone}
+                value={form.phone || ''}
                 onChange={handleChange}
                 placeholder="Your Phone"
               />
               <input
                 id="formAge"
-                name="Age"
+                name="age"
                 type="text"
-                value={form.age}
+                value={form.age || ''}
                 onChange={handleChange}
                 placeholder="Your Age"
               />
@@ -113,17 +114,17 @@ export function ProfileEdit() {
             <div className="forms2">
               <input
                 id="formDenomination"
-                name="Denomination"
+                name="denomination"
                 type="text"
-                value={form.denomination}
+                value={form.denomination || ''}
                 onChange={handleChange}
                 placeholder="Your Denomination"
               />
               <input
                 id="formInterests"
-                name="Interests"
+                name="interests"
                 type="text"
-                value={form.interests}
+                value={form.interests || ''}
                 onChange={handleChange}
                 placeholder="Your Interests"
               />
@@ -131,9 +132,9 @@ export function ProfileEdit() {
             <div className="forms3">
               <textarea
                 id="formDescription"
-                name="Description"
+                name="d escription"
                 type="text"
-                value={form.description}
+                value={form.description || ''}
                 onChange={handleChange}
                 placeholder="Your Description"
               />
@@ -151,7 +152,7 @@ export function ProfileEdit() {
                   id="formTags"
                   name="tags"
                   type="text"
-                  value={form.tags}
+                  value={form.tags || ''}
                   onChange={handleChange}
                   placeholder="insira o link aqui"
                 />
@@ -167,7 +168,7 @@ export function ProfileEdit() {
                   id="formTags"
                   name="tags"
                   type="text"
-                  value={form.tags}
+                  value={form.tags || ''}
                   onChange={handleChange}
                   placeholder="insira o link aqui"
                 />
@@ -183,7 +184,7 @@ export function ProfileEdit() {
                   id="formTags"
                   name="tags"
                   type="text"
-                  value={form.tags}
+                  value={form.tags || ''}
                   onChange={handleChange}
                   placeholder="insira o link aqui"
                 />
@@ -199,7 +200,7 @@ export function ProfileEdit() {
                   id="formTags"
                   name="tags"
                   type="text"
-                  value={form.tags}
+                  value={form.tags || ''}
                   onChange={handleChange}
                   placeholder="insira o link aqui"
                 />
