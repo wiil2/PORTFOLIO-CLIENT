@@ -15,8 +15,12 @@ export function ProfileEdit() {
     age: "",
     denomination: "",
     interests: "",
+    skills: "",
     description: "",
-    tags: "",
+    instagram: "",
+    linkedin:"",
+    github: "",
+    curriculo: "",
   });
 
   const { loggedInUser } = useContext(AuthContext);
@@ -132,75 +136,61 @@ export function ProfileEdit() {
             <div className="forms3">
               <textarea
                 id="formDescription"
-                name="d escription"
+                name="description"
                 type="text"
                 value={form.description || ''}
                 onChange={handleChange}
                 placeholder="Your Description"
               />
+              <textarea
+                id="formSkills"
+                name="skills"
+                type="text"
+                value={form.skills || ''}
+                onChange={handleChange}
+                placeholder="Your Skills"
+              />
             </div>
-            <div className="selects">
-              <h3>Redes Sociais</h3>
+            <div className="social-media">
+              <h2>MAIS INFORMAÇÕES</h2>
               <div>
-                <select onClick={handleChange} name="tags">
-                  <option value="Instagram">Instagram</option>
-                  <option value="Linkedin">Linkedin</option>
-                  <option value="Github">GitHub</option>
-                  <option value="WhatsApp">WhatsApp</option>
-                </select>
+              <h3>Meu currículo</h3>
                 <input
-                  id="formTags"
-                  name="tags"
+                  id="formCurriculo"
+                  name="curriculo"
                   type="text"
-                  value={form.tags || ''}
+                  value={form.curriculo || ''}
+                  onChange={handleChange}
+                  placeholder="insira o link aqui"
+                />
+                <h3>Instagram</h3>
+                <input
+                  id="formInstagram"
+                  name="instagram"
+                  type="text"
+                  value={form.instagram || ''}
                   onChange={handleChange}
                   placeholder="insira o link aqui"
                 />
               </div>
               <div>
-                <select onClick={handleChange} name="tags">
-                  <option value="Instagram">Instagram</option>
-                  <option value="Linkedin">Linkedin</option>
-                  <option value="Github">GitHub</option>
-                  <option value="WhatsApp">WhatsApp</option>
-                </select>
+                <h3>Linkedin</h3>
                 <input
-                  id="formTags"
-                  name="tags"
+                  id="formLinkedin"
+                  name="linkedin"
                   type="text"
-                  value={form.tags || ''}
+                  value={form.linkedin || ''}
                   onChange={handleChange}
                   placeholder="insira o link aqui"
                 />
               </div>
               <div>
-                <select onClick={handleChange} name="tags">
-                  <option value="Instagram">Instagram</option>
-                  <option value="Linkedin">Linkedin</option>
-                  <option value="Github">GitHub</option>
-                  <option value="WhatsApp">WhatsApp</option>
-                </select>
+                <h3>Github</h3>
                 <input
-                  id="formTags"
-                  name="tags"
+                  id="formGithub"
+                  name="github"
                   type="text"
-                  value={form.tags || ''}
-                  onChange={handleChange}
-                  placeholder="insira o link aqui"
-                />
-              </div>
-              <div>
-                <select onClick={handleChange} name="tags">
-                  <option value="Instagram">Instagram</option>
-                  <option value="Linkedin">Linkedin</option>
-                  <option value="Github">GitHub</option>
-                  <option value="WhatsApp">WhatsApp</option>
-                </select>
-                <input
-                  id="formTags"
-                  name="tags"
-                  type="text"
-                  value={form.tags || ''}
+                  value={form.github || ''}
                   onChange={handleChange}
                   placeholder="insira o link aqui"
                 />
@@ -236,17 +226,17 @@ const SContainer = styled.div`
     margin-left: 40px;
   }
   & .buttons {
-    text-align: center;
+    text-align: end;
   }
   & .buttons button {
-    border: 3px solid white;
-    color: #faeaa7;
+    color: #00F6EF;
     background-color: #14202e;
     border: 1px solid #14202e;
     align-items: center;
     border-radius: 5px;
     font-family: "Mukta";
     font-size: 20px;
+    font-weight: 600;
     margin: 3px;
     margin-top: 25px;
   }
@@ -276,7 +266,7 @@ const SMiddle = styled.div`
   }
   & .forms2 input {
     width: 384px;
-    height: 30px;
+    height: 50px;
     margin: 2px;
     font-size: 20px;
     border: 1px solid #14202e;
@@ -289,10 +279,10 @@ const SMiddle = styled.div`
     //border: 3px solid pink;
   }
   & .forms3 textarea {
-    width: 790px;
+    width: 385px;
     height: 150px;
     margin: 2px;
-    font-size: 20px;
+    font-size: 15px;
     border: 1px solid #14202e;
     background-color: #14202e;
     color: #faeaa7;
@@ -300,30 +290,25 @@ const SMiddle = styled.div`
     padding-left: 15px;
     resize: none;
   }
-  & .selects {
-    //border: 3px solid orange;
-  }
-  & .selects h3 {
+  & .social-media h2 {
     font-family: "Mukta";
     color: #faeaa7;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
   }
-  & .selects select {
+  & .social-media h3 {
     font-family: "Mukta";
     color: #faeaa7;
-    background-color: #14202e;
-    border: 1px solid #14202e;
-    margin: 3px;
-    height: 40px;
+    margin-bottom: 2px;
+    font-weight: 100;
   }
-  & .selects input {
+  & .social-media input {
     color: #faeaa7;
     background-color: #14202e;
     border: 1px solid #14202e;
     height: 20px;
     align-items: center;
     height: 30px;
-    width: 600px;
+    width: 400px;
   }
   & .photo {
     //border: 3px solid gray;

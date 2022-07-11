@@ -1,6 +1,5 @@
 body {
     background-image: url(./Pages/Assets/fundo4.png);
-    background-size: 100%;
+    background-size: cover;
     margin: auto;
-    background-color: black;
 }

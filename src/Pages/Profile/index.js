@@ -6,11 +6,12 @@ import styled from "styled-components";
 import Fundo from "../Assets/fundo.png"
 import Fundo2 from "../Assets/fundo2.png"
 import Section4 from "../Assets/fundofooter.png"
-import Linkedin from "../Assets/linkedin.png"
 import Instagram from "../Assets/insta.png"
+import Linkedin from "../Assets/linkedin.png"
 import GitHub from "../Assets/github.png"
 import Whats from "../Assets/wpp.png"
-import Edit from "../Assets/edit.png"
+
+
 
 export function Profile() {
 
@@ -19,6 +20,8 @@ export function Profile() {
     const {loggedInUser} = useContext(AuthContext);
     const navigate = useNavigate();
     const [ pageYPosition, setPageYPosition ] = useState(0);
+
+    console.log(loggedInUser)
     
     useEffect (() => {
         async function fetchProjects() {
@@ -61,7 +64,6 @@ export function Profile() {
 
                 <ul>
                     <li>Projetos</li>
-                    <li>Contato</li>
                 </ul>
 
                 <ul>
@@ -73,31 +75,34 @@ export function Profile() {
             <h1>Oi, eu sou o {loggedInUser.user.name}! </h1>
             <span className="front">{loggedInUser.user.denomination}</span> <span className="dev">developer</span>
 
-            <SGif>
+            <div className="gif1">
                 <img src="https://static.wixstatic.com/media/3a5df9_81b94f0536ef4a379857d7195426117c~mv2.gif" alt="gif"/>
-            </SGif>
+            </div>
         </SSection1>
 
         <SSection2>
             <div className="header1">
                 <h1> um pouco sobre mim...</h1>
-                <img src={Edit} alt=""/>
             </div>
-            <div className="middle">
-                <div>
+            <div>
                     <h2> {loggedInUser.user.name}, {loggedInUser.user.age}</h2>
                     <p>  {loggedInUser.user.description} </p>
-                    <p>Vamos fazer algo legal juntos?</p>
-                </div>
-                <div className="skills">
                     <h2>Habilidades</h2>
                     <p>{loggedInUser.user.skills}</p>
-                    <button>MEU CURRÍCULO</button>
-                </div>
+                    <a href={loggedInUser.user.curriculo} download="curriculo"><button>MEU CURRÍCULO</button></a> <span> - Vamos fazer alguma coisa juntos?</span>
             </div>
-            <SGif>
+            <div>
+                <ul>
+                    <a href={loggedInUser.user.linkedin}><li><img src={Linkedin} alt=""/></li></a>
+                    <a href={loggedInUser.user.instagram}><li><img src={Instagram} alt=""/></li></a>
+                    <a target="blank" href={`https://api.whatsapp.com/send?1=pt_BR&phone=55${loggedInUser.user.phone}`}><li><img src={Whats} alt=""/></li></a>
+                    <a href={loggedInUser.user.github}><li><img src={GitHub} alt=""/></li></a>
+                </ul>
+                </div>
+
+            <div className="gif2">
                 <img src="https://static.wixstatic.com/media/3a5df9_81b94f0536ef4a379857d7195426117c~mv2.gif" alt="gif"/>
-            </SGif>
+            </div>
         </SSection2>
 
         <SSection3>
@@ -119,9 +124,9 @@ export function Profile() {
                         </>
                     )})}
             </div>
-            <SGif>
+            <div className="gif3">
                 <img src="https://static.wixstatic.com/media/3a5df9_81b94f0536ef4a379857d7195426117c~mv2.gif" alt="gif"/>
-            </SGif>
+            </div>
         </SSection3>
 
         <SSection4 id="contato">
@@ -144,17 +149,6 @@ export function Profile() {
                     <input type="submit" value="Enviar"/>
                     <input type="reset" value="Limpar"/>
                 </form>
-
-                <div>
-                    <p>VISITE MINHAS REDES SOCIAIS</p>
-                    <ul>
-                        <a href="https://www.linkedin.com/in/william-berbet/"><li><img src={Linkedin} alt=""/></li></a>
-                        <a href="https://www.instagram.com/willnasredes/"><li><img src={Instagram} alt=""/></li></a>
-                        <a target="blank" href={`https://api.whatsapp.com/send?1=pt_BR&phone=55${loggedInUser.user.phone}`}><li><img src={Whats} alt=""/></li></a>
-                        <a href="https://github.com/will10iam"><li><img src={GitHub} alt=""/></li></a>
-                    </ul>
-                </div>
-
             </div>
             <hr></hr>
             
@@ -179,6 +173,7 @@ export default Profile;
 const SSection1 = styled.div`
 //background-image: url(${Fundo});
 //background-size: cover;
+height: 600px;
 & .front {
     color: #00F6EF;
     font-family: 'Gantari';
@@ -200,57 +195,51 @@ const SSection1 = styled.div`
     margin-left: 40px;
     margin-bottom: -35px;
 }
+& .gif1 {
+    text-align: center;
+& img {
+    width: 80px;
+    margin-top: 98px;
+}
+}
 `;
 const SSection2 = styled.div`
 //background-image: url(${Fundo2});
 //background-size: cover;
-
-& .header1 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-& .header1 img {
-    width: 80px;
-    height: 80px;
-}
-
-& .middle {
-    display: flex;
-    justify-content: space-between;
-}
-& .skills {
-    margin-right: 75px;
-}
-& .skills h2 {
-    color: #FF004F;
-    text-decoration: none;
-}
+height: 550px;
 & h1 {
     font-family: 'Mukta';
     color: #FAEAA7;
-    font-size: 90px;
+    font-size: 75px;
     margin-left: 40px;
-    margin-bottom: -35px;
+    margin-bottom: -5px;
     text-decoration: overline;
     text-decoration-color: #FF004F;
 }
 & h2 {
-    font-size: 35px;
+    font-size: 25px;
     font-family: 'Gantari';
     color: #00F6EF;
     margin-left: 40px;
 }
 & p {
-    font-size: 25px;
+    width: 850px;
+    font-size: 20px;
     font-family: 'Gantari';
     color: #FAEAA7;
     margin-left: 40px;
+    margin-top: -10px;
+}
+& span {
+    font-size: 20px;
+    font-family: 'Gantari';
+    color: #FAEAA7;
+    font-style: italic;
 }
 & button {
     font-size: 20px;
-    margin-left: 25px;
+    margin-left: 40px;
+    margin-top: 40px;
     font-family: 'Gantari';
     background-color: #FF004F;
     border: 1px solid #FF004F;
@@ -258,10 +247,31 @@ const SSection2 = styled.div`
     color: #FAEAA7;
     cursor: pointer;
 }
+& ul {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin-top: 10px;
+    margin-left: -25px;
+}
+& li {
+    list-style-type: none;
+}
+& img {
+    width: 120px;
+}
+& .gif2 {
+    text-align: center;
+& img {
+    width: 80px;
+    margin-top: -58px;
+}
+}
 `;
 const SSection3 = styled.div`
 //background-image: url(${Fundo2});
 //background-size: cover;
+height: 600px;
 & h1 {
     font-family: 'Mukta';
     color: #FAEAA7;
@@ -275,11 +285,17 @@ const SSection3 = styled.div`
     //width: 1000px;
     //height: 400px;
 }
+& .gif3 {
+    text-align: center;
+& img {
+    width: 80px;
+}
+}
 `
 const SSection4 = styled.div`
-background-image: url(${Section4});
-background-size: auto;
-height: 600px;
+//background-image: url(${Section4});
+//background-size: auto;
+height: 680px;
 & h1 {
     font-family: 'Mukta';
     color: #FAEAA7;
@@ -290,11 +306,12 @@ height: 600px;
     text-decoration-color: #00F6EF;
 }
 & p{
+    width: 950px;
     color: #FAEAA7;
     font-family: 'Gantari';
     font-style: italic;
     text-align: left;
-    font-size: 20px;
+    font-size: 25px;
     margin-left: 40px;
     margin-bottom: 75px;
 }
@@ -375,19 +392,6 @@ height: 600px;
       font-family: 'Gantari';
     }
 }
-& ul {
-    //margin-top: -25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 85px;
-}
-& li {
-    list-style-type: none;
-}
-& img {
-    width: 120px;
-}
 & hr {
   margin-top: 20px;
   border: 0;
@@ -460,10 +464,3 @@ justify-content: space-between;
     text-decoration: none;
 }
 `;
-const SGif = styled.div`
- text-align: center;
-& img {
-    width: 80px;
-    margin-top: 50px;
-}
-`
