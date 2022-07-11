@@ -46,7 +46,7 @@ export function ProfileEdit() {
     (async () => {
       try {
         console.log(form)
-        await api.patch("/user/update-profile", { ...form });
+        await api.patch("/user/profileEdit", { ...form });
         navigate("/profile");
       } catch (err) {
         console.log("***ERRO DO PATCH***", err);
