@@ -212,7 +212,7 @@ export function ProfileEdit() {
           </form>
 
           <div className="photo">
-            <img src={loggedInUser.user.img} alt={loggedInUser.user.name} />
+            {/* <img src={loggedInUser.user.img} alt={loggedInUser.user.name} /> */}
             <button>Change Photo</button>
           </div>
         </SMiddle>
