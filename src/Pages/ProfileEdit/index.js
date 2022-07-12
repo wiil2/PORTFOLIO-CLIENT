@@ -23,6 +23,8 @@ export function ProfileEdit() {
     curriculo: "",
   });
 
+  const [ img, setImg ] = useState("")
+
   const { loggedInUser } = useContext(AuthContext);
 
   useEffect(() => {
@@ -41,6 +43,25 @@ export function ProfileEdit() {
     });
   }
 
+  function handleImg(e) {
+    setImg(e.target.files[0]);
+  }
+
+  async function handleUpload() {
+    try{
+
+      const uploadData = new FormData();
+      uploadData.append("picture", img);
+
+      const response = await api.post("/upload-image", uploadData);
+
+      return response.data.url;
+
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
 
@@ -50,7 +71,8 @@ export function ProfileEdit() {
     (async () => {
       try {
         console.log(form)
-        await api.patch("/user/profileEdit", { ...form });
+        const imgURL = await handleUpload();
+        await api.patch("/user/profileEdit", { ...form, img: imgURL });
         navigate("/profile");
       } catch (err) {
         console.log("***ERRO DO PATCH***", err);
@@ -204,7 +226,7 @@ export function ProfileEdit() {
 
           <div className="photo">
             <img src={loggedInUser.user.img} alt={loggedInUser.user.name} />
-            <button>Change Photo</button>
+            <input type="file" id="formImg" onChange={handleImg}/>
           </div>
         </SMiddle>
       </SContainer>
@@ -316,17 +338,19 @@ const SMiddle = styled.div`
     flex-direction: column;
   }
   & .photo img {
-    border-radius: 2000px;
-    width: 350px;
-    margin-bottom: 10px;
+    border-radius: 180px;
+    width: 300px;
+    margin-bottom: 20px;
+    margin-top: -50px;
+    margin-left: 50px;
+    height: 300px;
   }
-  & .photo button {
+  & .photo input {
     color: #faeaa7;
-    background-color: #14202e;
-    border: 1px solid #14202e;
+    background-color: transparent;
     align-items: center;
     border-radius: 5px;
-    padding: 5px 70px;
+    //padding: 5px 70px;
     font-family: "Mukta";
     font-size: 20px;
   }
