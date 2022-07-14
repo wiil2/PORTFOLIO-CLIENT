@@ -219,8 +219,8 @@ export function ProfileEdit() {
               </div>
             </div>
             <div className="buttons">
-              <button type="submit">CONFIRM</button>
-              <button onClick={deleteUser}>DELETE PROFILE</button>
+              <button type="submit">confirmar</button>
+              <button onClick={deleteUser}>deletar perfil</button>
             </div>
           </form>
 
@@ -249,18 +249,20 @@ const SContainer = styled.div`
   }
   & .buttons {
     text-align: end;
+    
   }
   & .buttons button {
-    color: #00F6EF;
+    color: #faeaa7;
     background-color: #14202e;
     border: 1px solid #14202e;
     align-items: center;
     border-radius: 5px;
     font-family: "Mukta";
     font-size: 20px;
-    font-weight: 600;
+    font-style: italic;
     margin: 3px;
     margin-top: 25px;
+    padding: 0px 35px;
   }
 `;
 
