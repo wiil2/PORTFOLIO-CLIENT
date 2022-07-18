@@ -5,7 +5,7 @@ import Profile from "./Pages/Profile";
 import { AuthContextComponent } from "./contexts/authContext";
 import ProfileEdit from "./Pages/ProfileEdit";
 import "../src/index.css"
-import Projects from "./Pages/Project";
+import Projects from "./Pages/NewProject";
 
 
 

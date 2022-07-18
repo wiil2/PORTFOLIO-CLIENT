@@ -282,8 +282,15 @@ height: 600px;
     text-decoration-color: #00F6EF;
 }
 & .projects {
-    //width: 1000px;
-    //height: 400px;
+    display: grid ;
+    grid-template-columns: auto auto auto;
+    justify-content: start;
+    margin-left: 45px;
+}
+& .projects img {
+    width: 180px;
+    height: 150px;
+    opacity: 0.5;
 }
 & .gif3 {
     text-align: center;
