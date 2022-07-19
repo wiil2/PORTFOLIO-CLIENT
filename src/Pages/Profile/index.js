@@ -110,15 +110,15 @@ export function Profile() {
             <div className="projects">
                 { 
                     filteredProjects.map((currentProjects) => {
-                        const { name, language, tags, img } = currentProjects;
+                        const { name, tags, img } = currentProjects;
                     return (
                         <>
-                            <div>
+                            <div className="image">
                                 { tags.includes("FINISHED") ? <img src={img} alt=""/> : null }
                                 { tags.includes("IN PROGRESS") ? <img src={img} alt=""/> : null }
-                                <div>
+                                <div className="overlay">
                                     <h2>{name}</h2>
-                                    <h3>{language}</h3>
+                                    <h3>ver mais</h3>
                                 </div>
                             </div>
                         </>
@@ -286,11 +286,40 @@ height: 600px;
     grid-template-columns: auto auto auto;
     justify-content: start;
     margin-left: 45px;
+    gap: 5px;
 }
-& .projects img {
-    width: 180px;
-    height: 150px;
+& .image {
+    margin-top: 80px;
+    position: relative;
+}
+& .image img {
+    width: 330px;
+    height: 210px;
     opacity: 0.5;
+}
+& .overlay {
+    position: absolute;
+    bottom: 45px;
+    color: #f1f1f1;
+    width: 270px;
+    transition: .5s ease;
+    opacity:0;
+    color: white;
+    text-align: center;
+    font-family: 'Mukta';
+}
+& .overlay h2 {
+    font-size: 35px;
+    margin-left: 47px;
+    margin-bottom: -25px;
+}
+& .overlay h3 {
+    font-style: italic;
+    margin-left: 47px;
+    font-weight: 100;
+}
+& .image:hover .overlay {
+    opacity: 1;
 }
 & .gif3 {
     text-align: center;
