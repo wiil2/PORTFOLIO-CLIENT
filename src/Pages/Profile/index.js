@@ -62,25 +62,20 @@ export function Profile() {
                     <img className="photo" src={loggedInUser.user.img} alt="imagem de perfil" />
                 </div>
 
-                <div className="checkbox-wrapper">
-                    <input type="checkbox" id="toggle"/>
-                    <label class="checkbox" for="toggle">
-                        <div class="trace"></div>
-                        <div class="trace"></div>
-                        <div class="trace"></div>
-                    </label>
+                <div id="mySidenav" className="sidenav"> 
+                    <a id="projetos">Projetos</a>
+                    <a id="editperf">Editar Perfil</a>
+                    <a onClick={handleLogOut} id="sair">Sair</a>
                 </div>
 
-                <div className="menu">
-                    <div className="menu-itens">
-                        <ul>
-                            <li>Projetos</li>
-                            <Link to="/profileEdit"><li>Editar Perfil</li></Link>
-                            <button onClick={handleLogOut}>SAIR</button>
-                        </ul>
-                </div>
+                {/* <ul>
+                    <li>Projetos</li>
+                </ul>
 
-                </div>
+                <ul>
+                    <Link to="/profileEdit"><li>Editar Perfil</li></Link>
+                    <button onClick={handleLogOut}>SAIR</button>
+                </ul> */}
             </SHeader>
 
             <h1>Oi, eu sou o {loggedInUser.user.name}! </h1>
@@ -481,112 +476,57 @@ justify-content: space-between;
   border-right: solid 3px #00F6EF;
   border-radius: 100px;
 }
-& button {
-    font-size: 30px;
-    margin-left: 25px;
-    font-family: 'Gantari';
-    background-color: #FF004F;
-    border: 1px solid #FF004F;
-    border-radius: 12px;
-    color: #FAEAA7;
-    cursor: pointer;
-}
-& .checkbox {
-    height: 100px ;
-    width: 100px;
-    position: absolute;
-    right: 0;
-    //top: 0;
+& ul {
     display: flex;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 9999;
-    transition: 400ms ease-in-out;
-}
-& .checkbox .trace {
-    width: 50px;
-    height: 2px;
-    background-color: #FFFFFF;
-    position: absolute;
-    border-radius: 4px;
-    transition: 0.5s ease-in-out;
-
-}
-& .checkbox .trace:nth-child(1) {
-    top: 26px;
-    transform: rotate(0);
-}
-
-& .checkbox .trace:nth-child(2) {
-    top: 46px;
-    transform: rotate(0);
-}
-
-& .checkbox .trace:nth-child(3) {
-    top: 66px;
-    transform: rotate(0);
-}
-& #toggle {
-    display: none;
-}
-& .menu {
-    position: absolute ;
-    //top:28px ;
-    right:30px ;
-    background-color: transparent;
-    height:4px ;
-    width:10px ;
-    border-radius: 50%;
-    box-shadow: 0px 0px 0px 0px #FFFFFF;
-    z-index: -1;
-    transition: 400ms ease-in-out 0s;
-
-}
-& .menu-itens {
-    position: fixed;
-    //top: 0;
-    left:0 ;
-    width: 100px ;
-    height: 100px;
-    display: flex;
-    justify-content: center;
+    margin-right: 50px;
     align-items: center;
-    z-index: -2;
-    //opacity: 1;
-    visibility:hidden ;
-    transition: 400ms ease-in-out 0s;
+    margin-top: -35px;
+    margin-right: 50px; 
 }
-& .menu-itens ul {
+& li {
+    margin-left: 25px;
     list-style-type: none;
+    font-size: 35px;
+    font-family: 'Gantari';
+    color: #FAEAA7;
+    font-style: normal;
+    cursor: pointer;
 }
-& .menu-itens li {  
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    font-size: 15px;
+& a {
+    text-decoration: none;
 }
-& #toggle:checked + .checkbox .trace:nth-child(1) {
-    transform: rotate(45deg);
-    top: 47px;
+& #mySidenav a {
+  position: absolute;
+  right: -80px;
+  transition: 0.3s;
+  padding: 15px;
+  width: 100px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  border-radius: 5px 0 0 5px;
 }
-& #toggle:checked + .checkbox .trace:nth-child(2) {
-    transform: translate(-100px);
-    height: 30px;
-    visibility: hidden;
-    opacity: 0;
-}
-& #toggle:checked + .checkbox .trace:nth-child(3) {
-    transform: rotate(-45deg);
-    top: 48px;
-}
-& #toggle:checked ~ .menu {
-    box-shadow: 0px 0px 0px 100vmax white;
-    z-index: -1;
 
+& #mySidenav a:hover {
+  right: 0;
 }
-& #toggle:checked ~ .menu-itens {
-    visibility: visible;
-    opacity: 1;
-    font-weight: bold;
+
+& #projetos {
+  top: 20px;
+  background-color: #04AA6D;
+  font-family: 'Mukta';
 }
+
+& #editperf {
+  top: 90px;
+  background-color: #2196F3;
+  font-family: 'Mukta';
+}
+
+& #sair {
+  top: 160px;
+  background-color: #f44336;
+  font-family: 'Mukta';
+}
+
 `;
