@@ -10,6 +10,9 @@ import Instagram from "../Assets/insta.png"
 import Linkedin from "../Assets/linkedin.png"
 import GitHub from "../Assets/github.png"
 import Whats from "../Assets/wpp.png"
+import LogOut from "../Assets/logout.png"
+import Configs from "../Assets/configs.png"
+
 
 
 
@@ -52,7 +55,6 @@ export function Profile() {
     }
 
     window.addEventListener('scroll', getPageYAfterScroll);
-    
 
     return (
     <div id="container">
@@ -62,20 +64,9 @@ export function Profile() {
                     <img className="photo" src={loggedInUser.user.img} alt="imagem de perfil" />
                 </div>
 
-                <div id="mySidenav" className="sidenav"> 
-                    <a id="projetos">Projetos</a>
-                    <a id="editperf">Editar Perfil</a>
-                    <a onClick={handleLogOut} id="sair">Sair</a>
-                </div>
-
-                {/* <ul>
-                    <li>Projetos</li>
-                </ul>
-
-                <ul>
-                    <Link to="/profileEdit"><li>Editar Perfil</li></Link>
-                    <button onClick={handleLogOut}>SAIR</button>
-                </ul> */}
+                <Link to="/profileEdit"><img src={Configs} alt="" id="configs"/></Link>
+                <button onClick={handleLogOut}><img src={LogOut} alt="" id="quit"/></button>
+                 
             </SHeader>
 
             <h1>Oi, eu sou o {loggedInUser.user.name}! </h1>
@@ -495,38 +486,24 @@ justify-content: space-between;
 & a {
     text-decoration: none;
 }
-& #mySidenav a {
-  position: absolute;
-  right: -80px;
-  transition: 0.3s;
-  padding: 15px;
-  width: 100px;
-  text-decoration: none;
-  font-size: 20px;
-  color: white;
-  border-radius: 5px 0 0 5px;
+& button {
+    background-color: transparent;
+    color: white;
+    border: none;
 }
-
-& #mySidenav a:hover {
-  right: 0;
+& #quit {
+    border: none;
+    width: 90px;
+    margin-right: 50px;
+    margin-top: -50px;
+    cursor: pointer;
+    color: #FAEAA7;
 }
-
-& #projetos {
-  top: 20px;
-  background-color: #04AA6D;
-  font-family: 'Mukta';
+& #configs {
+    border: none;
+    width: 90px;
+    margin-left: 850px;
+    margin-top: 35px;
+    cursor: pointer;
 }
-
-& #editperf {
-  top: 90px;
-  background-color: #2196F3;
-  font-family: 'Mukta';
-}
-
-& #sair {
-  top: 160px;
-  background-color: #f44336;
-  font-family: 'Mukta';
-}
-
 `;
