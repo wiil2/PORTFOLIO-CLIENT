@@ -28,7 +28,7 @@ export function Profile() {
     
     useEffect (() => {
         async function fetchProjects() {
-            const response = await api.get("/projects/all-projects");
+            const response = await api.get("/projects/projects");
             setProjects(response.data) 
         }
         fetchProjects();
