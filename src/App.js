@@ -20,7 +20,7 @@ function App() {
           <Route path="/profile" element= { <Profile/> } />
           <Route path="/profileEdit" element= { <ProfileEdit/> } />
           <Route path="/createProject" element= { <Projects/> } />
-          <Route path="/projectPage" element= { <ProjectPage/> } />
+          <Route path="/projects/:id" element= { <ProjectPage/> } />
         </Routes>
       </AuthContextComponent>
     </>
