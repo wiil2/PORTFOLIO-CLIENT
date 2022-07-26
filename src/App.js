@@ -6,7 +6,7 @@ import { AuthContextComponent } from "./contexts/authContext";
 import ProfileEdit from "./Pages/ProfileEdit";
 import "../src/index.css"
 import Projects from "./Pages/NewProject";
-import { ProjectPage } from "./Pages/ProjectsPage";
+import { ProjectsPage } from "./Pages/ProjectsPage";
 
 
 
@@ -20,7 +20,7 @@ function App() {
           <Route path="/profile" element= { <Profile/> } />
           <Route path="/profileEdit" element= { <ProfileEdit/> } />
           <Route path="/createProject" element= { <Projects/> } />
-          <Route path="/projects/:id" element= { <ProjectPage/> } />
+          <Route path="/projects/:id" element= { <ProjectsPage/> } />
         </Routes>
       </AuthContextComponent>
     </>

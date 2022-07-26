@@ -5,7 +5,7 @@ import { AuthContext } from "../../contexts/authContext";
 import styled from "styled-components";
 
 
-export function ProjectPage() {
+export function ProjectsPage() {
 
     const [projects, setProjects] = useState([]);
     const {loggedInUser} = useContext(AuthContext);
@@ -20,8 +20,9 @@ export function ProjectPage() {
             console.log(response.data);
         }
         fetchProjects();
+        
     }); 
-
+    
 
     return ( 
         <>
@@ -36,4 +37,4 @@ export function ProjectPage() {
     )
 }
 
-export default ProjectPage;
+export default ProjectsPage;

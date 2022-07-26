@@ -12,6 +12,7 @@ import GitHub from "../Assets/github.png"
 import Whats from "../Assets/wpp.png"
 import LogOut from "../Assets/logout.png"
 import Configs from "../Assets/configs.png"
+import More from "../Assets/more.png"
 
 
 
@@ -103,7 +104,10 @@ export function Profile() {
         </SSection2>
 
         <SSection3>
-            <h1>meus projetos</h1>
+            <div className="header">
+                <h1>meus projetos</h1>
+                <Link to="/createProject"><img src={More} alt=""/></Link>
+            </div>
             <div className="projects">
                 { 
                     filteredProjects.map((currentProjects) => {
@@ -268,30 +272,30 @@ height: 550px;
 const SSection3 = styled.div`
 //background-image: url(${Fundo2});
 //background-size: cover;
-height: 600px;
+height: auto;
 & h1 {
     font-family: 'Mukta';
     color: #FAEAA7;
     font-size: 90px;
     margin-left: 40px;
-    margin-bottom: -35px;
+    margin-bottom: 35px;
     text-decoration: overline;
     text-decoration-color: #00F6EF;
 }
 & .projects {
     display: grid ;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto auto auto;
     justify-content: start;
     margin-left: 45px;
     gap: 5px;
 }
 & .image {
-    margin-top: 80px;
+    //margin-top: 80px;
     position: relative;
 }
 & .image img {
-    width: 330px;
-    height: 210px;
+    width: 300px;
+    height: 190px;
     opacity: 0.5;
 }
 & .overlay {
@@ -320,8 +324,19 @@ height: 600px;
 }
 & .gif3 {
     text-align: center;
+    margin-top: 135px;
 & img {
     width: 80px;
+}
+}
+& .header {
+  display: flex;
+  justify-content: space-between;
+& img {
+  width: 100px;
+  margin-top: 90px;
+  margin-left: 20px;
+  height: 100px;
 }
 }
 `
