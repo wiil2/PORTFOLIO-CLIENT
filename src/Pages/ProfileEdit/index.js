@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { api } from "../../api/api";
 import { AuthContext } from "../../contexts/authContext";
 import styled from "styled-components";
+import {toast} from 'react-toastify'
 
 export function ProfileEdit() {
   const navigate = useNavigate();
@@ -77,6 +78,7 @@ export function ProfileEdit() {
       } catch (err) {
         console.log("***ERRO DO PATCH***", err);
       }
+      toast.success("Editado com sucesso")
     })();
   }
 

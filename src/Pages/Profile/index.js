@@ -119,7 +119,7 @@ export function Profile() {
                                 { tags.includes("IN PROGRESS") ? <img src={img} alt=""/> : null }
                                 <div className="overlay">
                                     <h2>{name}</h2>
-                                    <h3>ver mais</h3>
+                                    <Link to={`/projects/${projects.id}`}><h3>ver mais</h3></Link>
                                 </div>
                             </div>
                         </>

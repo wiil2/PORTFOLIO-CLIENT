@@ -7,6 +7,8 @@ import ProfileEdit from "./Pages/ProfileEdit";
 import "../src/index.css"
 import Projects from "./Pages/NewProject";
 import { ProjectsPage } from "./Pages/ProjectsPage";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -14,6 +16,7 @@ function App() {
   return (
     <>
       <AuthContextComponent>
+        <ToastContainer autoClose={3000}/>
         <Routes>
           <Route path="/"  element= { <Login/>  } />
           <Route path="/signup" element= { <Signup/> } />
