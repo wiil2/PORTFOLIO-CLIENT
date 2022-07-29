@@ -6,17 +6,17 @@ import styled from "styled-components";
 
 export function ProjectsPage() {
     const [projects, setProjects] = useState({});
-    const { id } = useParams();
+    const { _id }= useParams();
 
     useEffect(() => {
       async function fetchProjects() {
-        const response = await api.get(`/projects/projects/${id}`)
+        const response = await api.get(`/projects/projects/${_id}`)
         setProjects(response.data)
         console.log(response.data)
       }
       fetchProjects();
       
-    }, [id])
+    }, [_id])
 
 
     return (<><h1>PROJETOS</h1></>)

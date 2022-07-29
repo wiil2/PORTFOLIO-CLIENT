@@ -44,7 +44,7 @@ export function Profile() {
     
     function handleLogOut() {
         localStorage.removeItem("loggedInUser");
-        navigate("/login")
+        navigate("/")
     }
 
     //function handleEdit() {
