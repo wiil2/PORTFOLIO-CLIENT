@@ -28,14 +28,13 @@ export function Login() {
             setLoggedInUser({ ...response.data });
 
             localStorage.setItem("loggedInUser", JSON.stringify(response.data));
+            console.log("USER AQUI", response.data)
 
             navigate("/profile")
         } catch(err) {
             console.log(err)
         }
     }
-
-
 
     return ( 
 

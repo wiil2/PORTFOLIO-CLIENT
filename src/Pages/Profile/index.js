@@ -23,12 +23,13 @@ export function Profile() {
     const navigate = useNavigate();
     const [ pageYPosition, setPageYPosition ] = useState(0);
 
-    console.log(loggedInUser)
+    /* console.log(loggedInUser) */
     
     useEffect (() => {
         async function fetchProjects() {
             const response = await api.get("/projects/projects");
-            setProjects(response.data) 
+            setProjects(response.data)
+            console.log(response.data) 
         }
         fetchProjects();
     }, []);
@@ -109,18 +110,16 @@ export function Profile() {
             <div className="projects">
                 { 
                     filteredProjects.map((currentProjects) => {
-                        const { name, tags, img } = currentProjects;
+                        const { name, tags, img, _id : id } = currentProjects;
                     return (
-                        <>
-                            <div className="image">
+                            <div className="image" key={id}>
                                 { tags.includes("FINISHED") ? <img src={img} alt=""/> : null }
                                 { tags.includes("IN PROGRESS") ? <img src={img} alt=""/> : null }
                                 <div className="overlay">
                                     <h2>{name}</h2>
-                                    <Link to={`/projects/${projects.id}`}><h3>ver mais</h3></Link>
+                                    <Link to={`/projects/${id}`}><h3>ver mais</h3></Link>
                                 </div>
                             </div>
-                        </>
                     )})}
             </div>
             <div className="gif3">
