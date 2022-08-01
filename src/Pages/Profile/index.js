@@ -15,8 +15,6 @@ import Configs from "../Assets/configs.png"
 import More from "../Assets/more.png"
 
 
-
-
 export function Profile() {
 
     const [projects, setProjects] = useState([]);
@@ -64,9 +62,9 @@ export function Profile() {
                 <div>
                     <img className="photo" src={loggedInUser.user.img} alt="imagem de perfil" />
                 </div>
-
                 <Link to="/profileEdit"><img src={Configs} alt="" id="configs"/></Link>
                 <button onClick={handleLogOut}><img src={LogOut} alt="" id="quit"/></button>
+                
                  
             </SHeader>
 
@@ -157,7 +155,6 @@ export function Profile() {
 
         <SFooter>
             { pageYPosition > 900 && <a href="#container">VOLTAR AO TOPO</a> }
-            <button onClick={handleLogOut}>SAIR?</button>
         </SFooter>
             
     
@@ -174,7 +171,7 @@ export default Profile;
 const SSection1 = styled.div`
 //background-image: url(${Fundo});
 //background-size: cover;
-height: 600px;
+height: auto;
 & .front {
     color: #00F6EF;
     font-family: 'Gantari';
@@ -207,7 +204,7 @@ height: 600px;
 const SSection2 = styled.div`
 //background-image: url(${Fundo2});
 //background-size: cover;
-height: 550px;
+height: auto;
 & h1 {
     font-family: 'Mukta';
     color: #FAEAA7;
@@ -343,7 +340,7 @@ height: auto;
 const SSection4 = styled.div`
 //background-image: url(${Section4});
 //background-size: auto;
-height: 680px;
+height: auto;
 & h1 {
     font-family: 'Mukta';
     color: #FAEAA7;
@@ -374,6 +371,7 @@ height: 680px;
 }
 & .forms {  
     margin-left: 40px;
+    margin-top: -15px;
 }
 & .forms input {
     font-size: 20px;
@@ -451,6 +449,7 @@ const SFooter = styled.div`
     display: flex;
     justify-content: space-evenly;
     //margin-top: -150px;
+    height: auto;
 & a {
     color: #FF004F;
     font-family: 'Gantari';

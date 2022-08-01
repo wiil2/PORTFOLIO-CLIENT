@@ -1,5 +1,6 @@
 body {
-    background-image: url(./Pages/Assets/fundo4.png);
-    background-size: cover;
-    margin: auto;
+    background: rgb(23,23,20);
+    background: linear-gradient(180deg, rgba(23,23,20,1) 6%, rgba(23,23,20,1) 51%, rgba(23,23,20,1) 100%);
+    /* background-size: cover;
+    margin: auto; */
 }
