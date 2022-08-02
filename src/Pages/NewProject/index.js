@@ -76,8 +76,8 @@ export function Projects() {
                         />
                         <select onClick={handleChange} name="tags">
                             <option value="empty"></option>
-                            <option value="FINISHED">FINISHED</option>
-                            <option value="IN PROGRESS">IN PROGRESS</option>
+                            <option value="FINALIZADO">FINALIZADO</option>
+                            <option value="EM ANDAMENTO">EM ANDAMENTO</option>
                         </select>
                     </div>
                     <div className="forms2">

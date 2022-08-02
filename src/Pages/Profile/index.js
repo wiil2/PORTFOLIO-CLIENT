@@ -113,8 +113,8 @@ export function Profile() {
                         const { name, tags, img, _id : id } = currentProjects;
                     return (
                             <div className="image" key={id}>
-                                { tags.includes("FINISHED") ? <img src={img} alt=""/> : null }
-                                { tags.includes("IN PROGRESS") ? <img src={img} alt=""/> : null }
+                                { tags.includes("FINALIZADO") ? <img src={img} alt=""/> : null }
+                                { tags.includes("EM ANDAMENTO   ") ? <img src={img} alt=""/> : null }
                                 <div className="overlay">
                                     <h2>{name}</h2>
                                     <Link to={`/projects/${id}`}><h3>ver mais</h3></Link>
