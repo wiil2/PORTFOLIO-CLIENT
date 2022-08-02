@@ -7,6 +7,7 @@ import ProfileEdit from "./Pages/ProfileEdit";
 import "../src/index.css"
 import Projects from "./Pages/NewProject";
 import { ProjectsPage } from "./Pages/ProjectsPage";
+import ProjectEdit from "./Pages/ProjectEdit";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -25,6 +26,7 @@ function App() {
           <Route path="/profileEdit" element= { <ProfileEdit/> } />
           <Route path="/createProject" element= { <Projects/> } />
           <Route path="/projects/:id" element= { <ProjectsPage/> } />
+          <Route path="/update-project/:projectId" element= { <ProjectEdit/> } />
         </Routes>
       </AuthContextComponent>
     </>

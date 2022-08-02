@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { api } from "../../api/api";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
@@ -48,7 +48,7 @@ export function ProjectsPage() {
           </div>
 
           <div className="button2">
-            <button>Editar Projeto</button>
+            <Link to={`/update-project/${id}`}><button>Editar Projeto</button></Link>
             <button>Deletar Projeto</button>
           </div>  
 
