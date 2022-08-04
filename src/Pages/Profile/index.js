@@ -112,12 +112,14 @@ export function Profile() {
                     filteredProjects.map((currentProjects) => {
                         const { name, tags, img, _id : id } = currentProjects;
                     return (
-                            <div className="image" key={id}>
-                                { tags.includes("FINALIZADO") ? <img src={img} alt=""/> : null }
-                                { tags.includes("EM ANDAMENTO   ") ? <img src={img} alt=""/> : null }
-                                <div className="overlay">
-                                    <h2>{name}</h2>
-                                    <Link to={`/projects/${id}`}><h3>ver mais</h3></Link>
+                            <div className="container" key={id}>
+                                { tags.includes("FINALIZADO") ? <img src={img} alt="" className="image"/> : null }
+                                { tags.includes("EM ANDAMENTO") ? <img src={img} alt="" className="image"/> : null }
+                                <div className="middle">
+                                    <div className="text">
+                                        <h2>{name}</h2>
+                                        <Link to={`/projects/${id}`}><h3>ver mais</h3></Link>
+                                    </div>
                                 </div>
                             </div>
                     )})}
@@ -285,38 +287,55 @@ height: auto;
     margin-left: 45px;
     gap: 5px;
 }
+& .container {
+  position: relative;
+  //width: 50%;
+}
 & .image {
-    //margin-top: 80px;
-    position: relative;
+  opacity: 1;
+  display: block;
+  width: 320px;
+  height: 250px;
+  transition: .5s ease;
+  backface-visibility: hidden;
 }
-& .image img {
-    width: 300px;
-    height: 190px;
-    opacity: 0.5;
+& .middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  margin-left: 25%;
+  line-height: 45px;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
 }
-& .overlay {
-    position: absolute;
-    bottom: 45px;
-    color: #f1f1f1;
-    width: 270px;
-    transition: .5s ease;
-    opacity:0;
-    color: white;
-    text-align: center;
-    font-family: 'Mukta';
+& .container:hover .image {
+  opacity: 0.3;
 }
-& .overlay h2 {
-    font-size: 35px;
-    margin-left: 47px;
+
+& .container:hover .middle {
+  opacity: 1;
+}
+& .text {
+  color: white;
+  font-size: 16px;
+  
+  margin-left: 160px;
+  font-family: 'Mukta';
+}
+& .text h2 {
+    font-size: 50px;
     margin-bottom: -25px;
 }
-& .overlay h3 {
-    font-style: italic;
-    margin-left: 47px;
-    font-weight: 100;
+& .text a {
+    font-size: 20px;
+    text-decoration: none;
+    color: #FAEAA7;
 }
-& .image:hover .overlay {
-    opacity: 1;
+& .text h3 {
+    background-color:#FF004F;
+    border-radius: 15px;
 }
 & .gif3 {
     text-align: center;

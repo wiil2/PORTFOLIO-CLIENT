@@ -19,16 +19,16 @@ export function ProjectEdit() {
     })
 
     const [ img, setImg ] = useState("");
-    const { id }= useParams();
+    const { projectEdit }= useParams();
 
     useEffect(() => {
         async function fetchProjetos() {
-          const response = await api.get("/projects/projects");
+          const response = await api.get(`/projects/project/${projectEdit}`);
           setForm({ ...response.data });
         }
         // *** VERIFICAR SE HOUVE ERRO
         fetchProjetos().catch((err) => console.log(err));
-      }, []);
+      }, [projectEdit]);
 
       function handleChange(e) {
         // *** UTILIZAR O ESTADO PREVIO DO STATE PASSANDO UMA CALLBACK E RETORNANDO NOVO VALOR
@@ -67,8 +67,8 @@ export function ProjectEdit() {
           try {
             console.log(form)
             const imgURL = await handleUpload();
-            await api.patch(`/projects/update-project/${id}`, { ...form, img: imgURL });
-            navigate(`/projects/${id}`);
+            await api.patch(`/projects/update-project/${projectEdit}`, { ...form, img: imgURL });
+            navigate("/profile");
           } catch (err) {
             console.log("***ERRO DO PATCH***", err);
           }
@@ -79,7 +79,7 @@ export function ProjectEdit() {
       const formId = form._id;
 
       function deleteProject() {
-        api.delete(`/projects/delete-project/${id}`, { formId });
+        api.delete(`/projects/delete-project/${projectEdit}`, { formId });
         navigate("/");
         return;
       }
@@ -87,7 +87,7 @@ export function ProjectEdit() {
 
     return (
     <SContainer>
-        <h1>editar perfil</h1>
+        <h1>editar projeto</h1>
 
         <SMiddle>
             <form onSubmit={handleSubmit}>
