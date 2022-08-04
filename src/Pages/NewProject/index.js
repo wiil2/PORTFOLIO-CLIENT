@@ -118,6 +118,7 @@ export default Projects;
 
 // =========================== STYLES ============================= //
 const SContainer = styled.div`
+height: auto;
 & h1 {
     text-decoration: overline;
     text-decoration-color: #ff004f;

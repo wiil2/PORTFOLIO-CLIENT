@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { api } from "../../api/api";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
@@ -20,6 +20,14 @@ export function ProjectsPage() {
       
     }, [id])
 
+    const projectId = projects._id;
+    const navigate = useNavigate();
+
+    function deleteProject() {
+      api.delete(`/projects/delete-project/${id}`, { projectId });
+      navigate("/profile");
+      return;
+    }
 
     return (
       <SContainer>
@@ -49,7 +57,7 @@ export function ProjectsPage() {
 
           <div className="button2">
             <Link to={`/update-project/${id}`}><button>Editar Projeto</button></Link>
-            <button>Deletar Projeto</button>
+            <button onClick={deleteProject}>Deletar Projeto</button>
           </div>  
 
         </div>
