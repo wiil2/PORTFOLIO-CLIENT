@@ -51,13 +51,13 @@ export function ProjectsPage() {
         <div className="footer">
 
           <div className="button1">
-            <button>Ver Projeto</button>
-            <button>Repo no GitHub</button>
+            <a href={projects.project}><button>Ver Projeto</button></a>
+            <a href={projects.repo}><button>Repo no GitHub</button></a>
           </div>
 
           <div className="button2">
-            <Link to={`/update-project/${id}`}><button>Editar Projeto</button></Link>
-            <button onClick={deleteProject}>Deletar Projeto</button>
+            <Link to={`/update-project/${id}`}><button id="edit">Editar Projeto</button></Link>
+            <button onClick={deleteProject} id="delete">Deletar Projeto</button>
           </div>  
 
         </div>
@@ -122,13 +122,19 @@ height: auto;
   margin-right: 199px;
   margin-top: 15px;
   & button {
-    border: #0D3057;
     border-radius: 5px;
-    background-color: #0D3057;
     margin-left: 5px;
     font-family: 'Mukta';
     color: #FAEAA7;
     font-size: 25px;
   }
+}
+& #edit {
+  border: 1px solid #008037;
+  background-color: #008037;
+}
+& #delete {
+  border: 1px solid #FF1616;
+  background-color: #FF1616;
 }
 `

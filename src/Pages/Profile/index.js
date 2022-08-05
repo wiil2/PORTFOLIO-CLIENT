@@ -6,10 +6,10 @@ import styled from "styled-components";
 import Fundo from "../Assets/fundo.png"
 import Fundo2 from "../Assets/fundo2.png"
 import Section4 from "../Assets/fundofooter.png"
-import Instagram from "../Assets/insta.png"
-import Linkedin from "../Assets/linkedin.png"
-import GitHub from "../Assets/github.png"
-import Whats from "../Assets/wpp.png"
+import Instagram from "../Assets/2.png"
+import Linkedin from "../Assets/1.png"
+import GitHub from "../Assets/4.png"
+import Whats from "../Assets/3.png"
 import LogOut from "../Assets/logout.png"
 import Configs from "../Assets/configs.png"
 import More from "../Assets/more.png"
@@ -146,8 +146,8 @@ export function Profile() {
                     <div className="textarea">
                         <textarea name="message" placeholder="digite aqui sua mensagem"/>
                     </div>
-                    <input type="submit" value="Enviar"/>
-                    <input type="reset" value="Limpar"/>
+                    <input id="enviar" type="submit" value="Enviar"/>
+                    <input id="limpar" type="reset" value="Limpar"/>
                 </form>
             </div>
             <hr></hr>
@@ -257,7 +257,7 @@ height: auto;
     list-style-type: none;
 }
 & img {
-    width: 120px;
+    width: 125px;
 }
 & .gif2 {
     text-align: center;
@@ -391,18 +391,29 @@ height: auto;
     margin-left: 40px;
     margin-top: -15px;
 }
-& .forms input {
-    font-size: 20px;
+& #enviar {
+    font-size: 30px;
     margin: 3px;
-    border: 1px solid #FAEAA7;
-    background-color: transparent;
+    margin-top: 18px;
+    border: 1px solid #008037;
+    background-color: #008037;
     color: #FAEAA7;
     font-family: 'Gantari';
-    font-size: 20px;
-    border-radius: 15px;
-
-
+    border-radius: 10px;
+    cursor: pointer;
 }
+& #limpar {
+    font-size: 30px;
+    margin: 3px;
+    margin-top: 18px;
+    border: 1px solid #FF1616;
+    background-color: #FF1616;
+    color: #FAEAA7;
+    font-family: 'Gantari';
+    border-radius: 10px;
+    cursor: pointer;
+}
+
 & .form1 input {
     margin: 5px;
     width: 310px;
@@ -442,7 +453,6 @@ height: auto;
     height: 150px;
     background-color: #14202E;
     border: 1px solid #14202E;
-    border-radius: 15px;
     color: #FAEAA7;
     font-family: 'Gantari';
     font-size: 20px;
@@ -529,13 +539,13 @@ justify-content: space-between;
     margin-right: 50px;
     margin-top: -50px;
     cursor: pointer;
-    color: #FAEAA7;
+
 }
 & #configs {
     border: none;
-    width: 90px;
+    width: 80px;
     margin-left: 850px;
-    margin-top: 35px;
+    margin-top: 40px;
     cursor: pointer;
 }
 `;

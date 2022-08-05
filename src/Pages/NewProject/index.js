@@ -13,6 +13,8 @@ export function Projects() {
         description: "",
         tags: "",
         img: "",
+        project: "",
+        repo: "",
     })
 
     const [ img, setImg ] = useState("")
@@ -98,6 +100,26 @@ export function Projects() {
                             onChange={handleChange} 
                             placeholder="Project Description"/>
                     </div>
+                    <div className="forms4">
+                    <h3>Link do Projeto</h3>
+                  <input
+                    id="formProject"
+                    name="project"
+                    type="text"
+                    value={form.project || ''}
+                    onChange={handleChange}
+                    placeholder="insira o link aqui"
+                  />
+                <h3>Link do Github</h3>
+                  <input
+                    id="formRepo"
+                    name="repo"
+                    type="text"
+                    value={form.repo || ''}
+                    onChange={handleChange}
+                    placeholder="insira o link aqui"
+                  />
+                    </div>
                     <div className="buttons">
                         <button type="submit">ADICIONAR</button>
                     </div>
@@ -124,15 +146,16 @@ height: auto;
     text-decoration-color: #ff004f;
     font-family: "Mukta";
     color: #faeaa7;
-    font-size: 90px;
+    font-size: 60px;
     margin-left: 40px;
   }
 `
 const SMiddle = styled.div`
 display: flex;
-justify-content: space-around;
+justify-content: space-between;
+margin-left: 40px;
 & .forms1 input {
-    width: 190px;
+    width: 290px;
     margin: 2px;
     height: 30px;
     font-size: 20px;
@@ -144,7 +167,7 @@ justify-content: space-around;
     //border-radius: 15px;
   }
 & .forms1 select {
-    width: 190px;
+    width: 290px;
     margin: 2px;
     height: 34px;
     font-size: 20px;
@@ -158,7 +181,7 @@ justify-content: space-around;
     //border: 3px solid yellow;
   }
   & .forms2 input {
-    width: 384px;
+    width: 584px;
     height: 50px;
     margin: 2px;
     font-size: 20px;
@@ -172,7 +195,7 @@ justify-content: space-around;
     //border: 3px solid pink;
   }
   & .forms3 textarea {
-    width: 385px;
+    width: 585px;
     height: 150px;
     margin: 2px;
     font-size: 15px;
@@ -183,18 +206,33 @@ justify-content: space-around;
     padding-left: 15px;
     resize: none;
   }
+& .forms4 input {
+    color: #faeaa7;
+    background-color: #14202e;
+    border: 1px solid #14202e;
+    height: 20px;
+    align-items: center;
+    height: 30px;
+    width: 400px;
+}
+& .forms4 h3 {
+    font-family: "Mukta";
+    color: #faeaa7;
+    margin-bottom: 2px;
+    font-weight: 100;
+  }
 & .photo {
-    //border: 3px solid gray;
     display: flex;
     flex-direction: column;
+    margin-right: 80px;
   }
   & .photo img {
     //border-radius: 100px;
-    width: 300px;
+    width: 450px;
     margin-bottom: 20px;
     margin-top:  10px;
     margin-left: 50px;
-    height: 200px;
+    height: 300px;
   }
   & .photo input {
     color: #faeaa7;
@@ -204,18 +242,19 @@ justify-content: space-around;
     //padding: 5px 70px;
     font-family: "Mukta";
     font-size: 20px;
+    margin-left: 80px;
   }
   & .buttons button {
     color: #faeaa7;
-    background-color: #14202e;
-    border: 1px solid #14202e;
+    background-color: #008037;
+    border: 1px solid #008037;
     align-items: center;
     border-radius: 5px;
     font-family: "Mukta";
-    font-size: 20px;
+    font-size: 30px;
     font-style: italic;
     margin: 3px;
-    margin-top: 25px;
+    margin-top: 55px;
     padding: 0px 35px;
   }
 

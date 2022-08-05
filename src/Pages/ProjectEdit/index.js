@@ -151,8 +151,8 @@ export function ProjectEdit() {
               </div>
 
               <div className="buttons">
-                <button type="submit">SALVAR ALTERAÇÕES</button>
-                <button onClick={deleteProject}>EXCLUIR PROJETO</button>
+                <button id="save" type="submit">SALVAR ALTERAÇÕES</button>
+                <button id="delete" onClick={deleteProject}>EXCLUIR PROJETO</button>
               </div>
             </form>
 
@@ -262,8 +262,6 @@ justify-content: space-between;
   }
   & .buttons button {
     color: #faeaa7;
-    background-color: #14202e;
-    border: 1px solid #14202e;
     align-items: center;
     border-radius: 5px;
     font-family: "Mukta";
@@ -273,6 +271,14 @@ justify-content: space-between;
     margin-top: 25px;
     padding: 0px 35px;
     
+  }
+  & #save {
+    border: 1px solid #008037;
+    background-color: #008037;
+  }
+  & #delete {
+    border: 1px solid #FF1616;
+    background-color: #FF1616;
   }
   & .links h3 {
     font-family: "Mukta";
