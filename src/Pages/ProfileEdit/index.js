@@ -246,7 +246,7 @@ const SContainer = styled.div`
     text-decoration-color: #ff004f;
     font-family: "Mukta";
     color: #faeaa7;
-    font-size: 90px;
+    font-size: 60px;
     margin-left: 40px;
   }
   & .buttons {
@@ -287,8 +287,8 @@ const SMiddle = styled.div`
     margin: 2px;
     height: 30px;
     font-size: 20px;
-    border: 1px solid #14202e;
-    background-color: #14202e;
+    border: 1px solid #05263B;
+    background-color: #05263B;
     color: #faeaa7;
     font-family: "Gantari";
     padding-left: 15px;
@@ -302,8 +302,8 @@ const SMiddle = styled.div`
     height: 50px;
     margin: 2px;
     font-size: 20px;
-    border: 1px solid #14202e;
-    background-color: #14202e;
+    border: 1px solid #05263B;
+    background-color: #05263B;
     color: #faeaa7;
     font-family: "Gantari";
     padding-left: 15px;
@@ -316,8 +316,8 @@ const SMiddle = styled.div`
     height: 150px;
     margin: 2px;
     font-size: 15px;
-    border: 1px solid #14202e;
-    background-color: #14202e;
+    border: 1px solid #05263B;
+    background-color: #05263B;
     color: #faeaa7;
     font-family: "Gantari";
     padding-left: 15px;
@@ -336,8 +336,8 @@ const SMiddle = styled.div`
   }
   & .social-media input {
     color: #faeaa7;
-    background-color: #14202e;
-    border: 1px solid #14202e;
+    background-color: #05263B;
+    border: 1px solid #05263B;
     height: 20px;
     align-items: center;
     height: 30px;

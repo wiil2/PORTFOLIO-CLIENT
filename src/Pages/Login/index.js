@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { api } from "../../api/api";
 import { AuthContext } from "../../contexts/authContext";
 import styled from "styled-components";
@@ -38,12 +38,9 @@ export function Login() {
 
     return ( 
         <SContainer>
-
         <SLogin>
-            
             <form onSubmit={handleSubmit}>
                 <div className="email">
-                    
                     <input type="email" 
                         name="email" 
                         value={form.email} 
@@ -51,9 +48,7 @@ export function Login() {
                         placeholder="Insira seu email"
                     />
                 </div>
-
                 <div className="pass">
-                    
                     <input type="password" 
                         name="password" 
                         value={form.password} 
@@ -61,14 +56,11 @@ export function Login() {
                         placeholder="Insira sua senha"
                     />
                 </div>
-
                 <button type="submit">LOGIN</button>
-
+                <Link to="/signup"><h3>Crie seu portfólio agora!</h3></Link>
             </form>
-
         </SLogin>
         </SContainer>
-
      );
 }
 
@@ -133,14 +125,27 @@ background-position: center;
 
 & button {
     width: 292px;
-    border: 1px solid #008037;
+    border: 1px solid #040A18;
     border-radius: 5px;
     padding: 10px 87px;
     margin-top: 10px;
-    background-color: #008037;
+    background-color: #040A18;
     color: white;
     font-family: "Mukta";
     cursor: pointer;
     font-size: 20px;
+}
+& h3 {
+    text-align: center;
+    color: white;
+    font-family: "Mukta";
+    font-size: 20px;
+    background-color: #05263B;
+    opacity: 0.8;
+    border-radius: 15px;
+    font-style: italic;
+}
+& a {
+    text-decoration: none;
 }
 `

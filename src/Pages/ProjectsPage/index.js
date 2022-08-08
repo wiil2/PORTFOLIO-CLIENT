@@ -51,8 +51,8 @@ export function ProjectsPage() {
         <div className="footer">
 
           <div className="button1">
-            <a href={projects.project}><button>Ver Projeto</button></a>
-            <a href={projects.repo}><button>Repo no GitHub</button></a>
+            <a href={projects.project} target="_blank" rel="noreferrer"><button>Ver Projeto</button></a>
+            <a href={projects.repo} target="_blank" rel="noreferrer"><button>Repo no GitHub</button></a>
           </div>
 
           <div className="button2">
@@ -62,6 +62,12 @@ export function ProjectsPage() {
 
         </div>
 
+        <hr></hr>
+
+        <SFooter>
+          <a href="/profile">home</a>
+        </SFooter>
+
       </SContainer>)
 }
 
@@ -70,8 +76,7 @@ export default ProjectsPage;
 // =========================== STYLES ============================= // 
 
 const SContainer = styled.div`
-height: auto;
-
+height: 563px;
 & .title {
     font-family: 'Mukta';
     color: #FAEAA7;
@@ -136,5 +141,24 @@ height: auto;
 & #delete {
   border: 1px solid #FF1616;
   background-color: #FF1616;
+}
+& hr {
+  margin-top: 40px;
+  border: 0;
+  height: 2px;
+  background-image: linear-gradient(to right, transparent, #00F6EF, transparent);
+}
+`
+const SFooter = styled.section`
+    display: flex;
+    justify-content: center;
+& a {
+    color: #FF004F;
+    font-family: 'Gantari';
+    text-transform: lowercase;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
 }
 `

@@ -1,6 +1,7 @@
 body {
-    background: rgb(23,23,20);
-    background: linear-gradient(180deg, rgba(23,23,20,1) 6%, rgba(23,23,20,1) 51%, rgba(23,23,20,1) 100%);
+    background: black;
+    background: linear-gradient(180deg, rgba(4,13,24,1) 6%, rgba(6,20,36,1) 51%, rgba(9,33,60,1) 100%);
     /* background-size: cover; */
     margin: 0;
+    opacity: 1;
 }

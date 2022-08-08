@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/authContext";
 import { api } from "../../api/api";
-import {toast} from 'react-toastify'
 import styled from "styled-components";
 import Fundo from "../Assets/fundo.png"
 import Fundo2 from "../Assets/fundo2.png"
@@ -14,6 +13,7 @@ import Whats from "../Assets/3.png"
 import LogOut from "../Assets/logout.png"
 import Configs from "../Assets/configs.png"
 import More from "../Assets/more.png"
+import Video from "../Assets/bg-video.mp4"  
 
 
 export function Profile() {
@@ -60,22 +60,29 @@ export function Profile() {
     return (
     <div id="container">
         <SSection1>
+            <video autoPlay loop muted id="meuVideo">
+                <source src={Video} type="video/mp4" />
+            </video>
             <SHeader>
                 <div>
-                    <img className="photo" src={loggedInUser.user.img} alt="imagem de perfil" />
+                    <img className="photo" src={loggedInUser.user.img} alt="imagem de perfil"  id="perfil"/>
                 </div>
-                <Link to="/profileEdit"><img src={Configs} alt="" id="configs"/></Link>
-                <button onClick={handleLogOut}><img src={LogOut} alt="" id="quit"/></button>
-                
-                 
+
+                <div className="content2">
+                    <Link to="/profileEdit"><img src={Configs} alt="" id="configs"/></Link>
+                    <button onClick={handleLogOut}><img src={LogOut} alt="" id="quit"/></button>
+                </div>
             </SHeader>
 
-            <h1>Oi, eu sou o {loggedInUser.user.name}! </h1>
-            <span className="front">{loggedInUser.user.denomination}</span> <span className="dev">developer</span>
+            <div>
+                <h1 >Oi, eu sou o {loggedInUser.user.name}! </h1>
+                <span className="front">{loggedInUser.user.denomination}</span> <span className="dev">developer</span>
+            </div>
 
             <div className="gif1">
                 <img src="https://static.wixstatic.com/media/3a5df9_81b94f0536ef4a379857d7195426117c~mv2.gif" alt="gif"/>
             </div>
+
         </SSection1>
 
         <SSection2>
@@ -170,10 +177,10 @@ export default Profile;
 
 
 // =========================== STYLES ============================= // 
-const SSection1 = styled.div`
+const SSection1 = styled.section`
 //background-image: url(${Fundo});
 //background-size: cover;
-height: auto;
+height: 700px;
 & .front {
     color: #00F6EF;
     font-family: 'Gantari';
@@ -202,8 +209,15 @@ height: auto;
     margin-top: 98px;
 }
 }
+& #meuVideo {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  z-index: -1000;
+  opacity: 0.5;
+}
 `;
-const SSection2 = styled.div`
+const SSection2 = styled.section`
 //background-image: url(${Fundo2});
 //background-size: cover;
 height: auto;
@@ -268,7 +282,7 @@ height: auto;
 }
 }
 `;
-const SSection3 = styled.div`
+const SSection3 = styled.section`
 //background-image: url(${Fundo2});
 //background-size: cover;
 height: auto;
@@ -285,8 +299,8 @@ height: auto;
     display: grid ;
     grid-template-columns: auto auto auto auto;
     justify-content: start;
-    margin-left: 45px;
-    gap: 5px;
+    //margin-left: 45px;
+    //gap: 5px;
 }
 & .container {
   position: relative;
@@ -356,7 +370,7 @@ height: auto;
 }
 }
 `
-const SSection4 = styled.div`
+const SSection4 = styled.section`
 //background-image: url(${Section4});
 //background-size: auto;
 height: auto;
@@ -419,8 +433,8 @@ height: auto;
     margin: 5px;
     width: 310px;
     height: 50px;
-    background-color: #14202E;
-    border: 1px solid #14202E;
+    background-color: #05263B;
+    border: 1px solid #05263B;
     padding-left: 10px;
     color: #FAEAA7;
     font-size: 20px;
@@ -437,8 +451,8 @@ height: auto;
     margin: 5px;
     width: 643px;
     height: 50px;
-    background-color: #14202E;
-    border: 1px solid #14202E;
+    background-color: #05263B;
+    border: 1px solid #05263B;
     padding-left: 10px;
     color: #FAEAA7;
     font-size: 20px;
@@ -456,8 +470,8 @@ height: auto;
     resize: none;
     width: 643px;
     height: 150px;
-    background-color: #14202E;
-    border: 1px solid #14202E;
+    background-color: #05263B;
+    border: 1px solid #05263B;
     color: #FAEAA7;
     font-family: 'Gantari';
     font-size: 20px;
@@ -478,7 +492,7 @@ height: auto;
   background-image: linear-gradient(to right, transparent, #00F6EF, transparent);
 }
 `
-const SFooter = styled.div`
+const SFooter = styled.section`
     display: flex;
     justify-content: space-evenly;
     //margin-top: -150px;
@@ -492,24 +506,14 @@ const SFooter = styled.div`
     cursor: pointer;
     text-decoration: none;
 }     
-& button {
-    background-color: transparent;
-    border: none;
-    color: #00F6EF;
-    font-family: 'Gantari';
-    text-transform: lowercase;
-    font-size: 40px;
-    font-weight: bold;
-    cursor: pointer;
-}
 `
-const SHeader = styled.div`
+const SHeader = styled.section`
 display: flex;
 justify-content: space-between;
 & img {
   width: 200px;
-  margin-top: 10px;
-  margin-left: 20px;
+  margin-top: 30px;
+  margin-left: 40px;
   border-left: solid 3px #FF004F;
   border-right: solid 3px #00F6EF;
   border-radius: 100px;
@@ -542,15 +546,13 @@ justify-content: space-between;
     border: none;
     width: 90px;
     margin-right: 50px;
-    margin-top: -50px;
     cursor: pointer;
 
 }
 & #configs {
     border: none;
     width: 80px;
-    margin-left: 850px;
-    margin-top: 40px;
+    margin-left: 830px;
     cursor: pointer;
 }
 `;
