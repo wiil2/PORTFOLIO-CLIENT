@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/authContext";
 import { api } from "../../api/api";
+import {toast} from 'react-toastify'
 import styled from "styled-components";
 import Fundo from "../Assets/fundo.png"
 import Fundo2 from "../Assets/fundo2.png"
@@ -421,6 +422,8 @@ height: auto;
     background-color: #14202E;
     border: 1px solid #14202E;
     padding-left: 10px;
+    color: #FAEAA7;
+    font-size: 20px;
     ::placeholder {
       font-size: 17px;
       color: #FAEAA7;
@@ -437,6 +440,8 @@ height: auto;
     background-color: #14202E;
     border: 1px solid #14202E;
     padding-left: 10px;
+    color: #FAEAA7;
+    font-size: 20px;
     ::placeholder {
       font-size: 17px;
       color: #FAEAA7;

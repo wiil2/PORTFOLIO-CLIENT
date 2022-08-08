@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { api } from "../../api/api";
 import styled from "styled-components";
 import Default from "../Assets/project.png"
+import {toast} from 'react-toastify'
 
 
 export function Projects() {
@@ -55,6 +56,7 @@ export function Projects() {
             } catch (err) {
                 console.log("***ERRO DO PATCH***", err);
             }
+            toast.success("Projeto adicionado com sucesso")
         })();
     }
 
