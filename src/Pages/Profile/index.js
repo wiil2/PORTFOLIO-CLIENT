@@ -24,7 +24,7 @@ export function Profile() {
     const navigate = useNavigate();
     const [ pageYPosition, setPageYPosition ] = useState(0);
 
-    /* console.log(loggedInUser) */
+    console.log(loggedInUser)
     
     useEffect (() => {
         async function fetchProjects() {
@@ -39,9 +39,17 @@ export function Profile() {
         if(elemento.user !== Context.loggedInUser.user._id) {
             return elemento
         }
-
     })
-    
+
+    console.log(filteredProjects)
+
+    const projectOwner = filteredProjects.map((element) => {
+        console.log(element)
+        return(element)  
+    })
+
+    console.log("proprietário", projectOwner)
+
     function handleLogOut() {
         localStorage.removeItem("loggedInUser");
         navigate("/")
@@ -68,10 +76,11 @@ export function Profile() {
                     <img className="photo" src={loggedInUser.user.img} alt="imagem de perfil"  id="perfil"/>
                 </div>
 
-                <div className="content2">
+                {loggedInUser ?  
+                (<div className="content2">
                     <Link to="/profileEdit"><img src={Configs} alt="" id="configs"/></Link>
                     <button onClick={handleLogOut}><img src={LogOut} alt="" id="quit"/></button>
-                </div>
+                </div>) : null}
             </SHeader>
 
             <div>
@@ -94,14 +103,14 @@ export function Profile() {
                     <p>  {loggedInUser.user.description} </p>
                     <h2>Habilidades</h2>
                     <p>{loggedInUser.user.skills}</p>
-                    <a href={loggedInUser.user.curriculo} download="curriculo"><button>MEU CURRÍCULO</button></a> <span> - Vamos fazer alguma coisa juntos?</span>
+                    <a href={loggedInUser.user.curriculo} download="curriculo" target="_blank" rel="noreferrer"><button>MEU CURRÍCULO</button></a> <span> - Vamos fazer alguma coisa juntos?</span>
             </div>
             <div>
                 <ul>
-                    <a href={loggedInUser.user.linkedin}><li><img src={Linkedin} alt=""/></li></a>
-                    <a href={loggedInUser.user.instagram}><li><img src={Instagram} alt=""/></li></a>
-                    <a target="blank" href={`https://api.whatsapp.com/send?1=pt_BR&phone=55${loggedInUser.user.phone}`}><li><img src={Whats} alt=""/></li></a>
-                    <a href={loggedInUser.user.github}><li><img src={GitHub} alt=""/></li></a>
+                    <a href={loggedInUser.user.linkedin} target="_blank" rel="noreferrer"><li><img src={Linkedin} alt=""/></li></a>
+                    <a href={loggedInUser.user.instagram} target="_blank" rel="noreferrer"><li><img src={Instagram} alt=""/></li></a>
+                    <a target="_blank" href={`https://api.whatsapp.com/send?1=pt_BR&phone=55${loggedInUser.user.phone}`} rel="noreferrer"><li><img src={Whats} alt=""/></li></a>
+                    <a href={loggedInUser.user.github} target="_blank" rel="noreferrer"><li><img src={GitHub} alt=""/></li></a>
                 </ul>
                 </div>
 

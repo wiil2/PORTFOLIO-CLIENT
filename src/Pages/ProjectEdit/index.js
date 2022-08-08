@@ -23,7 +23,7 @@ export function ProjectEdit() {
 
     useEffect(() => {
         async function fetchProjetos() {
-          const response = await api.get(`/projects/project/${projectEdit}`);
+          const response = await api.get(`/projects/projects/${projectEdit}`);
           setForm({ ...response.data });
         }
         // *** VERIFICAR SE HOUVE ERRO
@@ -68,7 +68,7 @@ export function ProjectEdit() {
             console.log(form)
             const imgURL = await handleUpload();
             await api.patch(`/projects/update-project/${projectEdit}`, { ...form, img: imgURL });
-            navigate("/profile");
+            navigate("/profile")
           } catch (err) {
             console.log("***ERRO DO PATCH***", err);
           }

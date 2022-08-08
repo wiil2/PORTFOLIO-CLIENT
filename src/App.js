@@ -10,6 +10,7 @@ import { ProjectsPage } from "./Pages/ProjectsPage";
 import ProjectEdit from "./Pages/ProjectEdit";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { ProtectedRoute } from "./Components/ProtectedRoute";
 
 
 
@@ -23,10 +24,10 @@ function App() {
           <Route path="/"  element= { <Login/>  } />
           <Route path="/signup" element= { <Signup/> } />
           <Route path="/profile" element= { <Profile/> } />
-          <Route path="/profileEdit" element= { <ProfileEdit/> } />
-          <Route path="/createProject" element= { <Projects/> } />
+          <Route path="/profileEdit" element= { <ProtectedRoute component={ProfileEdit}/> } />
+          <Route path="/createProject" element= { <ProtectedRoute component={Projects}/> } />
           <Route path="/projects/:id" element= { <ProjectsPage/> } />
-          <Route path="/update-project/:projectId" element= { <ProjectEdit/> } />
+          <Route path="/update-project/:projectId" element= { <ProtectedRoute component={ProjectEdit}/> } />
         </Routes>
       </AuthContextComponent>
     </>

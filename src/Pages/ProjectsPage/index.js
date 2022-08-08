@@ -10,7 +10,7 @@ export function ProjectsPage() {
 
     useEffect(() => {
       async function fetchProjects() {
-        const response = await api.get(`/projects/project/${id}`)
+        const response = await api.get(`/projects/projects/${id}`)
         const [ project ] = response.data
         setProjects(project)
         console.log(response.data)
