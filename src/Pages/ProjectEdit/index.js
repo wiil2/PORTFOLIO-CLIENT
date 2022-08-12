@@ -24,6 +24,7 @@ export function ProjectEdit() {
     useEffect(() => {
         async function fetchProjetos() {
           const response = await api.get(`/projects/projects/${projectEdit}`);
+          console.log(response.data)
           setForm({ ...response.data });
         }
         // *** VERIFICAR SE HOUVE ERRO
@@ -65,9 +66,10 @@ export function ProjectEdit() {
     
         (async () => {
           try {
-            console.log(form)
+            
             const imgURL = await handleUpload();
             await api.patch(`/projects/update-project/${projectEdit}`, { ...form, img: imgURL });
+
             navigate("/profile")
           } catch (err) {
             console.log("***ERRO DO PATCH***", err);
@@ -96,7 +98,7 @@ export function ProjectEdit() {
                   id="formName" 
                   name="name" 
                   type="text" 
-                  value={form.name || ''} 
+                  value={form.name} 
                   onChange={handleChange} 
                   placeholder="Project Name"
                 />
@@ -112,7 +114,7 @@ export function ProjectEdit() {
                   id="formLanguage" 
                   name="language" 
                   type="text" 
-                  value={form.language || ''} 
+                  value={form.language} 
                   onChange={handleChange} 
                   placeholder="Project Languages"
                 />
@@ -123,7 +125,7 @@ export function ProjectEdit() {
                   id="formDescription" 
                   name="description" 
                   type="text" 
-                  value={form.description || ''} 
+                  value={form.description} 
                   onChange={handleChange} 
                   placeholder="Project Description"
                 />
@@ -135,7 +137,7 @@ export function ProjectEdit() {
                     id="formProject"
                     name="project"
                     type="text"
-                    value={form.project || ''}
+                    value={form.project}
                     onChange={handleChange}
                     placeholder="insira o link aqui"
                   />
@@ -144,14 +146,14 @@ export function ProjectEdit() {
                     id="formRepo"
                     name="repo"
                     type="text"
-                    value={form.repo || ''}
+                    value={form.repo}
                     onChange={handleChange}
                     placeholder="insira o link aqui"
                   />
               </div>
 
               <div className="buttons">
-                <button id="save" type="submit">SALVAR ALTERAÇÕES</button>
+                <button id="save" onClick={handleSubmit}>SALVAR ALTERAÇÕES</button>
                 <button id="delete" onClick={deleteProject}>EXCLUIR PROJETO</button>
               </div>
             </form>

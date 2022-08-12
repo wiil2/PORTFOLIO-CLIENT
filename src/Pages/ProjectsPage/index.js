@@ -5,6 +5,7 @@ import styled from "styled-components";
 
 
 export function ProjectsPage() {
+    const navigate = useNavigate();
     const [projects, setProjects] = useState({});
     const { id }= useParams();
 
@@ -21,7 +22,7 @@ export function ProjectsPage() {
     }, [id])
 
     const projectId = projects._id;
-    const navigate = useNavigate();
+    
 
     function deleteProject() {
       api.delete(`/projects/delete-project/${id}`, { projectId });
@@ -76,7 +77,7 @@ export default ProjectsPage;
 // =========================== STYLES ============================= // 
 
 const SContainer = styled.div`
-height: 563px;
+height: auto;
 & .title {
     font-family: 'Mukta';
     color: #FAEAA7;

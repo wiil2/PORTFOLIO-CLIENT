@@ -103,7 +103,7 @@ export function Profile() {
                     <p>  {loggedInUser.user.description} </p>
                     <h2>Habilidades</h2>
                     <p>{loggedInUser.user.skills}</p>
-                    <a href={loggedInUser.user.curriculo} download="curriculo" target="_blank" rel="noreferrer"><button>MEU CURRÍCULO</button></a> <span> - Vamos fazer alguma coisa juntos?</span>
+                    <a href={loggedInUser.user.curriculo} download="curriculo" target="_blank" rel="noreferrer"><button>MEU CURRÍCULO</button></a> <span> - Vamos desenvolver juntos?</span>
             </div>
             <div>
                 <ul>
@@ -318,7 +318,7 @@ height: auto;
 & .image {
   opacity: 1;
   display: block;
-  width: 320px;
+  width: 337px;
   height: 250px;
   transition: .5s ease;
   backface-visibility: hidden;
