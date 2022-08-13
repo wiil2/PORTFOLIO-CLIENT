@@ -69,7 +69,7 @@ export function Profile() {
     <div id="container">
         <SSection1>
             <video autoPlay loop muted id="meuVideo">
-                <source src={Video} type="video/mp4" />
+                <source src="#" type="video/mp4" />
             </video>
             <SHeader>
                 <div>
