@@ -26,7 +26,8 @@ export function ProfileEdit() {
 
   const [ img, setImg ] = useState("")
 
-  const { loggedInUser } = useContext(AuthContext);
+  const { loggedInUser, setLoggedInUser } = useContext(AuthContext);
+
 
   useEffect(() => {
     async function fetchCadastro() {
@@ -73,7 +74,13 @@ export function ProfileEdit() {
       try {
         console.log(form)
         const imgURL = await handleUpload();
-        await api.patch("/user/profileEdit", { ...form, img: imgURL });
+        const response = await api.patch("/user/profileEdit", { ...form, img: imgURL });
+
+        if(response.data) {
+          setLoggedInUser({ user: response.data })
+        }
+
+        console.log(response)
         navigate("/profile");
       } catch (err) {
         console.log("***ERRO DO PATCH***", err);

@@ -84,7 +84,7 @@ export function Profile() {
             </SHeader>
 
             <div>
-                <h1 >Oi, eu sou o {loggedInUser.user.name}! </h1>
+                <h1>Oi, eu sou o {loggedInUser.user.name}! </h1>
                 <span className="front">{loggedInUser.user.denomination}</span> <span className="dev">developer</span>
             </div>
 

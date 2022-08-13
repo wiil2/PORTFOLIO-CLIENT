@@ -19,17 +19,19 @@ export function ProjectEdit() {
     })
 
     const [ img, setImg ] = useState("");
-    const { projectEdit }= useParams();
+    const { id }= useParams();
+    console.log(id)
 
     useEffect(() => {
         async function fetchProjetos() {
-          const response = await api.get(`/projects/projects/${projectEdit}`);
+          const response = await api.get(`/projects/projects/${id}`);
+          const { name, language, description, tags, img, repo, project } = response.data[0]
           console.log(response.data)
-          setForm({ ...response.data });
+          setForm({ name, language, description, tags, img, repo, project });
         }
         // *** VERIFICAR SE HOUVE ERRO
         fetchProjetos().catch((err) => console.log(err));
-      }, [projectEdit]);
+      }, [id]);
 
       function handleChange(e) {
         // *** UTILIZAR O ESTADO PREVIO DO STATE PASSANDO UMA CALLBACK E RETORNANDO NOVO VALOR
@@ -68,9 +70,11 @@ export function ProjectEdit() {
           try {
             
             const imgURL = await handleUpload();
-            await api.patch(`/projects/update-project/${projectEdit}`, { ...form, img: imgURL });
+            const formul = { ...form, img: imgURL }
+            console.log(formul)
+            await api.patch(`/projects/update-project/${id}`, formul );
 
-            navigate("/profile")
+            navigate(`/projects/${id}`)
           } catch (err) {
             console.log("***ERRO DO PATCH***", err);
           }
@@ -81,7 +85,7 @@ export function ProjectEdit() {
       const formId = form._id;
 
       function deleteProject() {
-        api.delete(`/projects/delete-project/${projectEdit}`, { formId });
+        api.delete(`/projects/delete-project/${id}`, { formId });
         navigate("/");
         return;
       }
@@ -98,7 +102,7 @@ export function ProjectEdit() {
                   id="formName" 
                   name="name" 
                   type="text" 
-                  value={form.name} 
+                  value={form.name || ''} 
                   onChange={handleChange} 
                   placeholder="Project Name"
                 />
@@ -114,7 +118,7 @@ export function ProjectEdit() {
                   id="formLanguage" 
                   name="language" 
                   type="text" 
-                  value={form.language} 
+                  value={form.language || ''} 
                   onChange={handleChange} 
                   placeholder="Project Languages"
                 />
@@ -125,7 +129,7 @@ export function ProjectEdit() {
                   id="formDescription" 
                   name="description" 
                   type="text" 
-                  value={form.description} 
+                  value={form.description || ''} 
                   onChange={handleChange} 
                   placeholder="Project Description"
                 />
@@ -137,7 +141,7 @@ export function ProjectEdit() {
                     id="formProject"
                     name="project"
                     type="text"
-                    value={form.project}
+                    value={form.project || ''}
                     onChange={handleChange}
                     placeholder="insira o link aqui"
                   />
@@ -146,7 +150,7 @@ export function ProjectEdit() {
                     id="formRepo"
                     name="repo"
                     type="text"
-                    value={form.repo}
+                    value={form.repo || ''}
                     onChange={handleChange}
                     placeholder="insira o link aqui"
                   />

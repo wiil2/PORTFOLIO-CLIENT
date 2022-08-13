@@ -27,7 +27,7 @@ function App() {
           <Route path="/profileEdit" element= { <ProtectedRoute component={ProfileEdit}/> } />
           <Route path="/createProject" element= { <ProtectedRoute component={Projects}/> } />
           <Route path="/projects/:id" element= { <ProjectsPage/> } />
-          <Route path="/update-project/:projectId" element= { <ProtectedRoute component={ProjectEdit}/> } />
+          <Route path="/update-project/:id" element= { <ProtectedRoute component={ProjectEdit}/> } />
         </Routes>
       </AuthContextComponent>
     </>
