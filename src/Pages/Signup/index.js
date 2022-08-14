@@ -39,7 +39,8 @@ export function Signup() {
     <SContainer>
         <SLogin>
             <form onSubmit={handleSubmit}>
-                
+
+             <div>
                 <input type="text" 
                     value={form.name} 
                     id="formName" 
@@ -63,7 +64,9 @@ export function Signup() {
                     name="citystate"
                     placeholder="sua cidade e estado"
                 />
-                
+             </div> 
+
+             <div> 
                 <input type="text" 
                     value={form.phone} 
                     id="formPhone"
@@ -87,9 +90,11 @@ export function Signup() {
                     name="confirmPassword"
                     placeholder="confirma sua senha"
                 />
-                
-                <button type="submit">CRIAR</button>
-                <Link to="/"><h3>Acesse seu Portfólio!</h3></Link>
+             </div> 
+                <div className="buttons">
+                    <button className="button1" type="submit">CRIAR MEU PORTFÓLIO!</button>
+                    <Link to="/"><button className="button2">Já tem um?  Clique aqui.</button></Link>
+                </div>
             </form>
         </SLogin>
     </SContainer>
@@ -114,10 +119,11 @@ background-size: cover;
 background-position: center;
 
 & form {
-    margin-top: 150px;
+    margin-top: 60px;
 }
 
 & input {
+    margin: 5px;
     border: 1px solid #D9D9D9;
     border-radius: 5px;
     padding: 10px 20px 10px;
@@ -125,7 +131,6 @@ background-position: center;
     background-color: #D9D9D9;
     color:#5D5E5F;
     font-family: "Mukta";
-    display: block;
     margin-bottom: 10px;
     font-weight: 600;
     font-size: 15px;
@@ -134,13 +139,17 @@ background-position: center;
       color: #B1C1B4;
       font-weight:bolder;
       font-size: 20px;
+      text-align: center;
     }
 }
-& button {
+& .buttons {
+    text-align:center;
+}
+& .button1 {
     width: 235px;
     border: 1px solid #040A18;
     border-radius: 5px;
-    padding: 10px 87px;
+    padding: 10px 10px 10px 10px;
     margin-top: 10px;
     background-color: #040A18;
     color: white;
@@ -148,14 +157,19 @@ background-position: center;
     cursor: pointer;
     font-size: 20px;
 }
-& h3 {
-    text-align: center;
+& .button2 {
+    width: 235px;
+    border: 1px solid #05263B;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-top: 10px;
+    background-color: #05263B;
     color: white;
     font-family: "Mukta";
-    font-size: 20px;
-    background-color: #05263B;
+    cursor: pointer;
+    font-size: 20px; 
+    margin-left: 5px;
     opacity: 0.8;
-    border-radius: 15px;
     font-style: italic;
 }
 & a {

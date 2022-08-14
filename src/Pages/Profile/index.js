@@ -69,7 +69,7 @@ export function Profile() {
     <div id="container">
         <SSection1>
             <video autoPlay loop muted id="meuVideo">
-                <source src="#" type="video/mp4" />
+                <source src={Video} type="video/mp4" />
             </video>
             <SHeader>
                 <div>
@@ -89,12 +89,12 @@ export function Profile() {
             </div>
 
             <div className="gif1">
-                <img src="https://static.wixstatic.com/media/3a5df9_81b94f0536ef4a379857d7195426117c~mv2.gif" alt="gif"/>
+                <a href="#section2"><img src="https://static.wixstatic.com/media/3a5df9_81b94f0536ef4a379857d7195426117c~mv2.gif" alt="gif"/></a>
             </div>
 
         </SSection1>
 
-        <SSection2>
+        <SSection2 id="section2">
             <div className="header1">
                 <h1> um pouco sobre mim...</h1>
             </div>
@@ -115,11 +115,11 @@ export function Profile() {
                 </div>
 
             <div className="gif2">
-                <img src="https://static.wixstatic.com/media/3a5df9_81b94f0536ef4a379857d7195426117c~mv2.gif" alt="gif"/>
+                <a href="#section3"><img src="https://static.wixstatic.com/media/3a5df9_81b94f0536ef4a379857d7195426117c~mv2.gif" alt="gif"/></a>
             </div>
         </SSection2>
 
-        <SSection3>
+        <SSection3 id="section3">
             <div className="header">
                 <h1>meus projetos</h1>
                 <Link to="/createProject"><img src={More} alt=""/></Link>
@@ -142,7 +142,7 @@ export function Profile() {
                     )})}
             </div>
             <div className="gif3">
-                <img src="https://static.wixstatic.com/media/3a5df9_81b94f0536ef4a379857d7195426117c~mv2.gif" alt="gif"/>
+                <a href="#contato"><img src="https://static.wixstatic.com/media/3a5df9_81b94f0536ef4a379857d7195426117c~mv2.gif" alt="gif"/></a>
             </div>
         </SSection3>
 
@@ -189,7 +189,7 @@ export default Profile;
 const SSection1 = styled.section`
 //background-image: url(${Fundo});
 //background-size: cover;
-height: 700px;
+height: auto;
 & .front {
     color: #00F6EF;
     font-family: 'Gantari';
@@ -215,7 +215,8 @@ height: 700px;
     text-align: center;
 & img {
     width: 80px;
-    margin-top: 98px;
+    margin-top: 88px;
+    margin-bottom: 20px;
 }
 }
 & #meuVideo {
@@ -236,8 +237,8 @@ height: auto;
     font-size: 75px;
     margin-left: 40px;
     margin-bottom: -5px;
-    text-decoration: overline;
-    text-decoration-color: #FF004F;
+    /* text-decoration: overline;
+    text-decoration-color: #FF004F; */
 }
 & h2 {
     font-size: 25px;
@@ -276,6 +277,7 @@ height: auto;
     justify-content: start;
     margin-top: 10px;
     margin-left: -25px;
+    margin-bottom: -80px;
 }
 & li {
     list-style-type: none;
@@ -287,7 +289,7 @@ height: auto;
     text-align: center;
 & img {
     width: 80px;
-    margin-top: -58px;
+    margin-top: 58px;
 }
 }
 `;
@@ -298,11 +300,12 @@ height: auto;
 & h1 {
     font-family: 'Mukta';
     color: #FAEAA7;
-    font-size: 90px;
+    font-size: 75px;
     margin-left: 40px;
+    margin-top: 15px;
     margin-bottom: 35px;
-    text-decoration: overline;
-    text-decoration-color: #00F6EF;
+    /* text-decoration: overline;
+    text-decoration-color: #00F6EF; */
 }
 & .projects {
     display: grid ;
@@ -363,7 +366,7 @@ height: auto;
 }
 & .gif3 {
     text-align: center;
-    margin-top: 135px;
+    margin-top: 100px;
 & img {
     width: 80px;
 }
@@ -373,7 +376,7 @@ height: auto;
   justify-content: space-between;
 & img {
   width: 100px;
-  margin-top: 90px;
+  margin-top: 20px;
   margin-left: 20px;
   height: 100px;
 }
@@ -389,8 +392,8 @@ height: auto;
     font-size: 90px;
     margin-left: 40px;
     margin-bottom: -25px;
-    text-decoration: overline;
-    text-decoration-color: #00F6EF;
+    /* text-decoration: overline;
+    text-decoration-color: #00F6EF; */
 }
 & p{
     width: 950px;

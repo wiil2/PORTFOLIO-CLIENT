@@ -90,17 +90,18 @@ height: auto;
 & .middle {
   display: flex; 
   margin-left: 40px;
-  margin-top: -35px;
+  margin-top: -55px;
   justify-content: space-between;
 }
 & h2 {
   width: 650px;
   font-family: 'Mukta';
   color: #FAEAA7;
+  font-weight: 200;
 }
 & span {
   font-style: italic;
-  font-weight: 200;
+  font-weight: bold;
 }
 & img {
   width: 480px;
@@ -151,6 +152,7 @@ height: auto;
 }
 `
 const SFooter = styled.section`
+    height: 62px;
     display: flex;
     justify-content: center;
 & a {

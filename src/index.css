@@ -4,4 +4,17 @@ body {
     /* background-size: cover; */
     margin: 0;
     opacity: 1;
+    scroll-behavior: smooth;
 }
+
+::-webkit-scrollbar-thumb {
+    background: #FAEAA7;
+}
+::-webkit-scrollbar {
+    width: 5px;
+  }
+::-webkit-scrollbar-track {
+    background: linear-gradient(180deg, rgba(4,13,24,1) 6%, rgba(6,20,36,1) 51%, rgba(9,33,60,1) 100%); 
+  }
+
+   

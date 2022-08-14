@@ -76,7 +76,7 @@ display: flex;
 align-items: center;
 justify-content: center;
 height: 750px;
-background-image: url(${Login1});
+background: url(${Login1});
 background-repeat: no-repeat;
 background-size: cover;
 background-position: center;
