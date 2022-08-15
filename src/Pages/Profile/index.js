@@ -55,10 +55,6 @@ export function Profile() {
         navigate("/")
     }
 
-    //function handleEdit() {
-        //navigate("/userEdit")
-    //}
-
     function getPageYAfterScroll() {
         setPageYPosition(window.scrollY);
     }
@@ -122,7 +118,9 @@ export function Profile() {
         <SSection3 id="section3">
             <div className="header">
                 <h1>meus projetos</h1>
-                <Link to="/createProject"><img src={More} alt=""/></Link>
+
+                { loggedInUser ? 
+                (<Link to="/createProject"><img src={More} alt=""/></Link>) : null } 
             </div>
             <div className="projects">
                 { 
@@ -174,11 +172,7 @@ export function Profile() {
         <SFooter>
             { pageYPosition > 900 && <a href="#container">VOLTAR AO TOPO</a> }
         </SFooter>
-            
-    
-    
     </div>
-
     )
 }
 
@@ -195,21 +189,21 @@ height: auto;
     font-family: 'Gantari';
     font-style: italic;
     margin-left: 40px;
-    font-size: 35px;
+    font-size: 25px;
 }
 & .dev {
     color: #FF004F;
     font-family: 'Gantari';
     font-style: italic;
     margin-left: 5px;
-    font-size: 35px;
+    font-size: 25px;
 }
 & h1 {
     font-family: 'Mukta';
     color: #FAEAA7;
-    font-size: 90px;
+    font-size: 70px;
     margin-left: 40px;
-    margin-bottom: -35px;
+    margin-bottom: -15px;
 }
 & .gif1 {
     text-align: center;
@@ -234,7 +228,7 @@ height: auto;
 & h1 {
     font-family: 'Mukta';
     color: #FAEAA7;
-    font-size: 75px;
+    font-size: 70px;
     margin-left: 40px;
     margin-bottom: -5px;
     /* text-decoration: overline;
@@ -300,7 +294,7 @@ height: auto;
 & h1 {
     font-family: 'Mukta';
     color: #FAEAA7;
-    font-size: 75px;
+    font-size: 70px;
     margin-left: 40px;
     margin-top: 15px;
     margin-bottom: 35px;
@@ -340,7 +334,6 @@ height: auto;
 & .container:hover .image {
   opacity: 0.3;
 }
-
 & .container:hover .middle {
   opacity: 1;
 }
@@ -389,9 +382,9 @@ height: auto;
 & h1 {
     font-family: 'Mukta';
     color: #FAEAA7;
-    font-size: 90px;
+    font-size: 70px;
     margin-left: 40px;
-    margin-bottom: -25px;
+    margin-bottom: -5px;
     /* text-decoration: overline;
     text-decoration-color: #00F6EF; */
 }
@@ -401,9 +394,9 @@ height: auto;
     font-family: 'Gantari';
     font-style: italic;
     text-align: left;
-    font-size: 25px;
+    font-size: 20px;
     margin-left: 40px;
-    margin-bottom: 75px;
+    margin-bottom: 65px;
 }
 & .bottom {
     display: flex;
@@ -419,7 +412,7 @@ height: auto;
     margin-top: -15px;
 }
 & #enviar {
-    font-size: 30px;
+    font-size: 25px;
     margin: 3px;
     margin-top: 18px;
     border: 1px solid #008037;
@@ -430,7 +423,7 @@ height: auto;
     cursor: pointer;
 }
 & #limpar {
-    font-size: 30px;
+    font-size: 25px;
     margin: 3px;
     margin-top: 18px;
     border: 1px solid #FF1616;
@@ -440,7 +433,6 @@ height: auto;
     border-radius: 10px;
     cursor: pointer;
 }
-
 & .form1 input {
     margin: 5px;
     width: 310px;

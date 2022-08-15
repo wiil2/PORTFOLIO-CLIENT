@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { api } from "../../api/api";
 import { AuthContext } from "../../contexts/authContext";
 import styled from "styled-components";
@@ -25,8 +25,6 @@ export function ProfileEdit() {
   });
 
   const [ img, setImg ] = useState("")
-  
-
   const { loggedInUser, setLoggedInUser } = useContext(AuthContext);
 
 
@@ -101,7 +99,10 @@ export function ProfileEdit() {
   return (
     <>
       <SContainer>
-        <h1>editar perfil</h1>
+        <div id="header">
+          <h1>editar perfil</h1>
+          <Link to="/profile"><h4>página inicial</h4></Link>
+        </div>
 
         <SMiddle>
           <form onSubmit={handleSubmit}>
@@ -249,13 +250,21 @@ export default ProfileEdit;
 // =========================== STYLES ============================= //
 
 const SContainer = styled.div`
+  
   & h1 {
-    text-decoration: overline;
-    text-decoration-color: #ff004f;
     font-family: "Mukta";
     color: #faeaa7;
     font-size: 60px;
     margin-left: 40px;
+  }
+  & h4 {
+    font-family: "Mukta";
+    color: #faeaa7;
+    font-size: 25px;
+    margin-right: 40px;
+  }
+  & a {
+    text-decoration: none;
   }
   & .buttons {
     text-align: end;
@@ -273,23 +282,23 @@ const SContainer = styled.div`
     margin-top: 25px;
     padding: 0px 35px;
   }
-& #confirm {
-  border: 1px solid #008037;
-  background-color: #008037;
-}
-& #delete {
-  border: 1px solid #FF1616;
-  background-color: #FF1616;
-}
+  & #confirm {
+    border: 1px solid #008037;
+    background-color: #008037;
+  }
+  & #delete {
+    border: 1px solid #FF1616;
+    background-color: #FF1616;
+  }
+  & #header {
+    display: flex;
+    justify-content: space-between;
+  }
 `;
 
 const SMiddle = styled.div`
   display: flex;
   justify-content: space-around;
-  //border: 5px solid red;
-  & .forms1 {
-    //border: 3px solid green;
-  }
   & .forms1 input {
     width: 140px;
     margin: 2px;
@@ -302,9 +311,6 @@ const SMiddle = styled.div`
     padding-left: 15px;
     //border-radius: 15px;
   }
-  & .forms2 {
-    //border: 3px solid yellow;
-  }
   & .forms2 input {
     width: 384px;
     height: 50px;
@@ -315,9 +321,6 @@ const SMiddle = styled.div`
     color: #faeaa7;
     font-family: "Gantari";
     padding-left: 15px;
-  }
-  & .forms3 {
-    //border: 3px solid pink;
   }
   & .forms3 textarea {
     width: 385px;

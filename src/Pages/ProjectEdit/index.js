@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams} from "react-router-dom";
+import { Link, useNavigate, useParams} from "react-router-dom";
 import { api } from "../../api/api";
 
 import styled from "styled-components";
@@ -93,7 +93,10 @@ export function ProjectEdit() {
 
     return (
     <SContainer>
-        <h1>editar projeto</h1>
+        <div id="header">
+          <h1>editar perfil</h1>
+          <Link to="/profile"><h4>página inicial</h4></Link>
+        </div>
 
         <SMiddle>
             <form onSubmit={handleSubmit}>
@@ -167,10 +170,6 @@ export function ProjectEdit() {
               <input type="file" id="formImg" onChange={handleImg}/>
             </div>
         </SMiddle>
-        
-
-
-
     </SContainer>
     );
 }
@@ -179,13 +178,26 @@ export default ProjectEdit;
 
 // =========================== STYLES ============================= //
 const SContainer = styled.div`
-& h1 {
-    text-decoration: overline;
-    text-decoration-color: #ff004f;
+  & h1 {
     font-family: "Mukta";
     color: #faeaa7;
     font-size: 60px;
     margin-left: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  & h4 {
+    font-family: "Mukta";
+    color: #faeaa7;
+    font-size: 25px;
+    margin-right: 40px;
+  }
+  & a {
+    text-decoration: none;
+  }
+  & #header {
+    display: flex;
+    justify-content: space-between;
   }
 `
 
@@ -193,7 +205,7 @@ const SMiddle = styled.div`
 display: flex;
 justify-content: space-between;
 
-& .forms1 input {
+  & .forms1 input {
     width: 290px;
     margin: 2px;
     height: 30px;
@@ -206,7 +218,7 @@ justify-content: space-between;
     margin-left: 40px;
     
   }
-& .forms1 select {
+  & .forms1 select {
     width: 290px;
     margin: 2px;
     height: 34px;
@@ -216,7 +228,7 @@ justify-content: space-between;
     color: #faeaa7;
     font-family: "Gantari";
     padding-left: 15px;
-}  
+  }  
   & .forms2 input {
     width: 584px;
     height: 50px;
@@ -242,7 +254,7 @@ justify-content: space-between;
     resize: none;
     margin-left: 40px;
   }
-& .photo {
+  & .photo {
     display: flex;
     flex-direction: column;
     margin-right: 80px;

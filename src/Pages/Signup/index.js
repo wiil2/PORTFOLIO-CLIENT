@@ -28,13 +28,14 @@ export function Signup() {
 
             await api.post("/user/signup", form);
 
-            navigate("/login");
+            navigate("/");
 
         } catch (error) {
             console.log(error);
         }
     }
 
+        
     return ( 
     <SContainer>
         <SLogin>
@@ -90,6 +91,7 @@ export function Signup() {
                     name="confirmPassword"
                     placeholder="confirma sua senha"
                 />
+
              </div> 
                 <div className="buttons">
                     <button className="button1" type="submit">CRIAR MEU PORTFÓLIO!</button>
@@ -174,5 +176,13 @@ background-position: center;
 }
 & a {
     text-decoration: none;
+}
+& #cadeon {
+    width: 18px;
+    cursor: pointer;
+}
+& #cadeoff {
+    width: 18px;
+    cursor: pointer;
 }
 `

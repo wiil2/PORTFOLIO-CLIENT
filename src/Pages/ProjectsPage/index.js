@@ -1,7 +1,8 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { api } from "../../api/api";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
+import { AuthContext } from "../../contexts/authContext";
 
 
 export function ProjectsPage() {
@@ -22,6 +23,7 @@ export function ProjectsPage() {
     }, [id])
 
     const projectId = projects._id;
+    const { loggedInUser } = useContext(AuthContext)
     
 
     function deleteProject() {
@@ -56,17 +58,18 @@ export function ProjectsPage() {
             <a href={projects.repo} target="_blank" rel="noreferrer"><button>Repo no GitHub</button></a>
           </div>
 
-          <div className="button2">
+          { loggedInUser ? 
+          (<div className="button2">
             <Link to={`/update-project/${id}`}><button id="edit">Editar Projeto</button></Link>
             <button onClick={deleteProject} id="delete">Deletar Projeto</button>
-          </div>  
+          </div>) : null }
 
         </div>
 
         <hr></hr>
 
         <SFooter>
-          <a href="/profile">home</a>
+          <a href="/profile">página inicial</a>
         </SFooter>
 
       </SContainer>)
@@ -83,9 +86,7 @@ height: auto;
     color: #FAEAA7;
     font-size: 40px;
     margin-left: 40px;
-    margin-bottom: 35px;
-    text-decoration: overline;
-    text-decoration-color: #00F6EF;
+    margin-top: -15px;
 }
 & .middle {
   display: flex; 
@@ -104,9 +105,9 @@ height: auto;
   font-weight: bold;
 }
 & img {
-  width: 480px;
-  margin-right: 120px;
-  margin-top: -120px;
+  width: 490px;
+  margin-right: 100px;
+  margin-top: -10px;
 }
 & .footer {
   display: flex;
@@ -155,13 +156,15 @@ const SFooter = styled.section`
     height: 62px;
     display: flex;
     justify-content: center;
+    align-items: center;
 & a {
-    color: #FF004F;
+    color: #FAEAA7;
     font-family: 'Gantari';
     text-transform: lowercase;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: bold;
     cursor: pointer;
     text-decoration: none;
+    
 }
 `
