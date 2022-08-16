@@ -35,8 +35,9 @@ export function Projects() {
             uploadData.append("picture", img);
 
             const response = await api.post("/upload-image", uploadData);
-
+            console.log(response.data)
             return response.data.url;
+            
         } catch (err) {
             console.log(err)
         }

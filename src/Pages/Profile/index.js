@@ -35,8 +35,10 @@ export function Profile() {
         fetchProjects();
     }, []);
 
+    
+
     const filteredProjects = projects.filter((elemento) => {
-        if(elemento.user !== Context.loggedInUser.user._id) {
+        if(elemento.user === Context.loggedInUser.user._id) {
             return elemento
         }
     })

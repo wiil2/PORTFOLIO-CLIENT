@@ -22,9 +22,10 @@ export function ProfileEdit() {
     linkedin:"",
     github: "",
     curriculo: "",
+    img: "",
   });
 
-  const [ img, setImg ] = useState("")
+  const [ img, setImg ] = useState()
   const { loggedInUser, setLoggedInUser } = useContext(AuthContext);
 
 
@@ -44,23 +45,26 @@ export function ProfileEdit() {
     });
   }
 
-  function handleImg(e) {
-    setImg(e.target.files[0]);
-  }
+  
 
   async function handleUpload() {
+    
     try{
-
+      
       const uploadData = new FormData();
       uploadData.append("picture", img);
 
       const response = await api.post("/upload-image", uploadData);
-
       return response.data.url;
+      
 
     } catch (err) {
       console.log(err)
     }
+  }
+
+  function handleImg(e) {
+    setImg(e.target.files[0]);
   }
 
   function handleSubmit(e) {

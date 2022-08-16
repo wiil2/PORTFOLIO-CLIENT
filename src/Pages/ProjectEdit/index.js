@@ -20,13 +20,13 @@ export function ProjectEdit() {
 
     const [ img, setImg ] = useState("");
     const { id }= useParams();
-    console.log(id)
+    //console.log(id)
 
     useEffect(() => {
         async function fetchProjetos() {
           const response = await api.get(`/projects/projects/${id}`);
           const { name, language, description, tags, img, repo, project } = response.data[0]
-          console.log(response.data)
+          //console.log(response.data)
           setForm({ name, language, description, tags, img, repo, project });
         }
         // *** VERIFICAR SE HOUVE ERRO
@@ -51,13 +51,14 @@ export function ProjectEdit() {
           uploadData.append("picture", img);
     
           const response = await api.post("/upload-image", uploadData);
-    
+          console.log(response.data)
           return response.data.url;
     
         } catch (err) {
           console.log(err)
         }
       }
+      
       
 
       function handleSubmit(e) {
@@ -94,7 +95,7 @@ export function ProjectEdit() {
     return (
     <SContainer>
         <div id="header">
-          <h1>editar perfil</h1>
+          <h1>editar projeto</h1>
           <Link to="/profile"><h4>página inicial</h4></Link>
         </div>
 
