@@ -22,12 +22,11 @@ export function ProfileEdit() {
     linkedin:"",
     github: "",
     curriculo: "",
-    img: "",
   });
 
-  const [ img, setImg ] = useState()
+  
   const { loggedInUser, setLoggedInUser } = useContext(AuthContext);
-
+  const [ img, setImg ] = useState("")
 
   useEffect(() => {
     async function fetchCadastro() {
@@ -45,26 +44,23 @@ export function ProfileEdit() {
     });
   }
 
-  
+  function handleImg(e) {
+    setImg(e.target.files[0]);
+  }
 
   async function handleUpload() {
-    
     try{
-      
+
       const uploadData = new FormData();
       uploadData.append("picture", img);
 
       const response = await api.post("/upload-image", uploadData);
-      return response.data.url;
-      
 
-    } catch (err) {
+      return response.data.url;
+
+    } catch(err){
       console.log(err)
     }
-  }
-
-  function handleImg(e) {
-    setImg(e.target.files[0]);
   }
 
   function handleSubmit(e) {
@@ -83,7 +79,6 @@ export function ProfileEdit() {
           setLoggedInUser({ user: response.data })
         }
 
-        console.log(response)
         navigate("/profile");
       } catch (err) {
         console.log("***ERRO DO PATCH***", err);

@@ -38,8 +38,10 @@ export function Profile() {
     
 
     const filteredProjects = projects.filter((elemento) => {
+        console.log(elemento)
         if(elemento.user === Context.loggedInUser.user._id) {
             return elemento
+            
         }
     })
 

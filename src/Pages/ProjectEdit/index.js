@@ -5,6 +5,7 @@ import { api } from "../../api/api";
 import styled from "styled-components";
 import {toast} from 'react-toastify'
 
+
 export function ProjectEdit() {
     const navigate = useNavigate();
     
@@ -13,7 +14,6 @@ export function ProjectEdit() {
         language: "",
         description: "",
         tags: "",
-        img: "",
         repo: "",
         project: "",
     })
@@ -25,9 +25,9 @@ export function ProjectEdit() {
     useEffect(() => {
         async function fetchProjetos() {
           const response = await api.get(`/projects/projects/${id}`);
-          const { name, language, description, tags, img, repo, project } = response.data[0]
+          const { name, language, description, tags, repo, project } = response.data[0]
           //console.log(response.data)
-          setForm({ name, language, description, tags, img, repo, project });
+          setForm({ name, language, description, tags, repo, project });
         }
         // *** VERIFICAR SE HOUVE ERRO
         fetchProjetos().catch((err) => console.log(err));
@@ -43,23 +43,20 @@ export function ProjectEdit() {
       function handleImg(e) {
         setImg(e.target.files[0]);
       }
-    
-      async function handleUpload() {
+
+      async function handleUpload(){
         try{
-    
+
           const uploadData = new FormData();
-          uploadData.append("picture", img);
-    
+          uploadData.append("picture", img)
+
           const response = await api.post("/upload-image", uploadData);
-          console.log(response.data)
-          return response.data.url;
-    
-        } catch (err) {
+          return response.data.url
+
+        } catch(err) {
           console.log(err)
         }
       }
-      
-      
 
       function handleSubmit(e) {
         e.preventDefault();
@@ -69,11 +66,8 @@ export function ProjectEdit() {
     
         (async () => {
           try {
-            
             const imgURL = await handleUpload();
-            const formul = { ...form, img: imgURL }
-            console.log(formul)
-            await api.patch(`/projects/update-project/${id}`, formul );
+            await api.patch(`/projects/update-project/${id}`, { ...form, img: imgURL } );
 
             navigate(`/projects/${id}`)
           } catch (err) {
