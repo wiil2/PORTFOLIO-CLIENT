@@ -105,15 +105,6 @@ export function Profile() {
                     <p>{loggedInUser.user.skills}</p>
                     <a href={loggedInUser.user.curriculo} download="curriculo" target="_blank" rel="noreferrer"><button>MEU CURRÍCULO</button></a> <span> - Vamos desenvolver juntos?</span>
             </div>
-            <div>
-                <ul>
-                    <a href={loggedInUser.user.linkedin} target="_blank" rel="noreferrer"><li><img src={Linkedin} alt=""/></li></a>
-                    <a href={loggedInUser.user.instagram} target="_blank" rel="noreferrer"><li><img src={Instagram} alt=""/></li></a>
-                    <a target="_blank" href={`https://api.whatsapp.com/send?1=pt_BR&phone=55${loggedInUser.user.phone}`} rel="noreferrer"><li><img src={Whats} alt=""/></li></a>
-                    <a href={loggedInUser.user.github} target="_blank" rel="noreferrer"><li><img src={GitHub} alt=""/></li></a>
-                </ul>
-                </div>
-
             <div className="gif2">
                 <a href="#section3"><img src="https://static.wixstatic.com/media/3a5df9_81b94f0536ef4a379857d7195426117c~mv2.gif" alt="gif"/></a>
             </div>
@@ -168,6 +159,16 @@ export function Profile() {
                     <input id="enviar" type="submit" value="Enviar"/>
                     <input id="limpar" type="reset" value="Limpar"/>
                 </form>
+
+                <div>
+                    <ul id="social-media">
+                        <a href={loggedInUser.user.linkedin} target="_blank" rel="noreferrer"><li><img src={Linkedin} alt=""/></li></a>
+                        <a href={loggedInUser.user.instagram} target="_blank" rel="noreferrer"><li><img src={Instagram} alt=""/></li></a>
+                        <a target="_blank" href={`https://api.whatsapp.com/send?1=pt_BR&phone=55${loggedInUser.user.phone}`} rel="noreferrer"><li><img src={Whats} alt=""/></li></a>
+                        <a href={loggedInUser.user.github} target="_blank" rel="noreferrer"><li><img src={GitHub} alt=""/></li></a>
+                    </ul>
+                </div>
+
             </div>
             <hr></hr>
             
@@ -269,20 +270,7 @@ height: auto;
     color: #FAEAA7;
     cursor: pointer;
 }
-& ul {
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    margin-top: 10px;
-    margin-left: -25px;
-    margin-bottom: -80px;
-}
-& li {
-    list-style-type: none;
-}
-& img {
-    width: 125px;
-}
+
 & .gif2 {
     text-align: center;
 & img {
@@ -319,8 +307,8 @@ height: auto;
 & .image {
   opacity: 1;
   display: block;
-  width: 337px;
-  height: 250px;
+  width: 340px;
+  height: 215px;
   transition: .5s ease;
   backface-visibility: hidden;
 }
@@ -437,6 +425,13 @@ height: auto;
     border-radius: 10px;
     cursor: pointer;
 }
+& #social-media {
+    display: flex;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    margin-right: 150px;
+   
+}
 & .form1 input {
     margin: 5px;
     width: 310px;
@@ -492,6 +487,12 @@ height: auto;
       opacity: 0.5;
       font-family: 'Gantari';
     }
+}
+& li {
+    list-style-type: none;
+}
+& img {
+    width: 100px;
 }
 & hr {
   margin-top: 20px;

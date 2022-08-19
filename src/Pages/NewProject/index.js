@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { api } from "../../api/api";
 import styled from "styled-components";
 import Default from "../Assets/project.png"
@@ -64,8 +64,9 @@ export function Projects() {
 
     return ( 
         <SContainer>
-            <div>
+            <div id="header">
                 <h1>adicionar projeto</h1>
+                <Link to="/profile"><h4>página inicial</h4></Link>
             </div>
 
             <SMiddle>
@@ -143,8 +144,8 @@ export default Projects;
 
 // =========================== STYLES ============================= //
 const SContainer = styled.div`
-height: auto;
-& h1 {
+  height: auto;
+  & h1 {
     text-decoration: overline;
     text-decoration-color: #ff004f;
     font-family: "Mukta";
@@ -152,12 +153,25 @@ height: auto;
     font-size: 60px;
     margin-left: 40px;
   }
+  & h4 {
+    font-family: "Mukta";
+    color: #faeaa7;
+    font-size: 25px;
+    margin-right: 40px;
+  }
+  & a {
+    text-decoration: none;
+  }
+  & #header {
+    display: flex;
+    justify-content: space-between;
+  }
 `
 const SMiddle = styled.div`
-display: flex;
-justify-content: space-between;
-margin-left: 40px;
-& .forms1 input {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 40px;
+  & .forms1 input {
     width: 290px;
     margin: 2px;
     height: 30px;
@@ -169,7 +183,7 @@ margin-left: 40px;
     padding-left: 15px;
     //border-radius: 15px;
   }
-& .forms1 select {
+  & .forms1 select {
     width: 290px;
     margin: 2px;
     height: 34px;
@@ -179,7 +193,7 @@ margin-left: 40px;
     color: #faeaa7;
     font-family: "Gantari";
     padding-left: 15px;
-}  
+  }  
   & .forms2 {
     //border: 3px solid yellow;
   }
@@ -209,7 +223,7 @@ margin-left: 40px;
     padding-left: 15px;
     resize: none;
   }
-& .forms4 input {
+  & .forms4 input {
     color: #faeaa7;
     background-color: #05263B;
     border: 1px solid #05263B;
@@ -217,14 +231,14 @@ margin-left: 40px;
     align-items: center;
     height: 30px;
     width: 400px;
-}
-& .forms4 h3 {
+  }
+  & .forms4 h3 {
     font-family: "Mukta";
     color: #faeaa7;
     margin-bottom: 2px;
     font-weight: 100;
   }
-& .photo {
+  & .photo {
     display: flex;
     flex-direction: column;
     margin-right: 80px;
