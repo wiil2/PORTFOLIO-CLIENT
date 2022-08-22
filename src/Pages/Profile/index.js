@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/authContext";
 import { api } from "../../api/api";
+import { toast } from 'react-toastify'
 import styled from "styled-components";
 import Fundo from "../Assets/fundo.png"
 import Fundo2 from "../Assets/fundo2.png"
@@ -35,8 +36,6 @@ export function Profile() {
         fetchProjects();
     }, []);
 
-    
-
     const filteredProjects = projects.filter((elemento) => {
         console.log(elemento)
         if(elemento.user === Context.loggedInUser.user._id) {
@@ -44,8 +43,6 @@ export function Profile() {
             
         }
     })
-
-    console.log(filteredProjects)
 
     const projectOwner = filteredProjects.map((element) => {
         console.log(element)
@@ -61,6 +58,19 @@ export function Profile() {
 
     function getPageYAfterScroll() {
         setPageYPosition(window.scrollY);
+    }
+
+    function handleSubmit(e){
+
+        toast.success("Email enviado com sucesso!", {
+            position: "top-left",
+            autoClose: 6000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        })
     }
 
     window.addEventListener('scroll', getPageYAfterScroll);
@@ -145,7 +155,10 @@ export function Profile() {
             
             <div className="bottom">
 
-                <form action={`https://formsubmit.co/${loggedInUser.user.email}`} method="POST" className="forms">
+                <form action={`https://formsubmit.co/${loggedInUser.user.email}`} method="POST" className="forms" onSubmit={handleSubmit}>
+                    <input type="hidden" name="_next" value="http://localhost:3000/profile#contato" />
+                    <input type="hidden" name="_captcha" value="false"/>
+
                     <div className="form1">
                         <input type="text" name="name" placeholder="seu nome"/>
                         <input type="email" name="email" placeholder="seu email"/>
@@ -156,7 +169,7 @@ export function Profile() {
                     <div className="textarea">
                         <textarea name="message" placeholder="digite aqui sua mensagem"/>
                     </div>
-                    <input id="enviar" type="submit" value="Enviar"/>
+                    <input id="enviar" type="submit" value="Enviar" />
                     <input id="limpar" type="reset" value="Limpar"/>
                 </form>
 
