@@ -4,7 +4,6 @@ import { AuthContext } from "../../contexts/authContext";
 import { api } from "../../api/api";
 import { toast } from 'react-toastify'
 import styled from "styled-components";
-import Fundo from "../Assets/fundo.png"
 import Fundo2 from "../Assets/fundo2.png"
 import Section4 from "../Assets/fundofooter.png"
 import Instagram from "../Assets/2.png"
@@ -94,7 +93,7 @@ export function Profile() {
             </SHeader>
 
             <div>
-                <h1>Oi, eu sou o {loggedInUser.user.name}! </h1>
+                <h1>Oi, eu sou {loggedInUser.user.name}! </h1>
                 <span className="front">{loggedInUser.user.denomination}</span> <span className="dev">developer</span>
             </div>
 
@@ -174,6 +173,7 @@ export function Profile() {
                 </form>
 
                 <div>
+                    <h2>Visite minhas redes sociais</h2>
                     <ul id="social-media">
                         <a href={loggedInUser.user.linkedin} target="_blank" rel="noreferrer"><li><img src={Linkedin} alt=""/></li></a>
                         <a href={loggedInUser.user.instagram} target="_blank" rel="noreferrer"><li><img src={Instagram} alt=""/></li></a>
@@ -199,29 +199,29 @@ export default Profile;
 
 // =========================== STYLES ============================= // 
 const SSection1 = styled.section`
-//background-image: url(${Fundo});
-//background-size: cover;
 height: auto;
 & .front {
     color: #00F6EF;
-    font-family: 'Gantari';
+    font-family: 'Montserrat';
     font-style: italic;
     margin-left: 40px;
     font-size: 25px;
+    font-weight: bold;
 }
 & .dev {
     color: #FF004F;
-    font-family: 'Gantari';
+    font-family: 'Montserrat';
     font-style: italic;
     margin-left: 5px;
     font-size: 25px;
+    font-weight: bold;
 }
 & h1 {
-    font-family: 'Mukta';
+    font-family: 'Montserrat';
     color: #FAEAA7;
     font-size: 70px;
     margin-left: 40px;
-    margin-bottom: -15px;
+    margin-bottom: 5px;
 }
 & .gif1 {
     text-align: center;
@@ -240,35 +240,32 @@ height: auto;
 }
 `;
 const SSection2 = styled.section`
-//background-image: url(${Fundo2});
-//background-size: cover;
 height: auto;
 & h1 {
-    font-family: 'Mukta';
+    font-family: 'Montserrat';
     color: #FAEAA7;
     font-size: 70px;
     margin-left: 40px;
     margin-bottom: -5px;
-    /* text-decoration: overline;
-    text-decoration-color: #FF004F; */
 }
 & h2 {
     font-size: 25px;
-    font-family: 'Gantari';
+    font-family: 'Montserrat';
     color: #00F6EF;
     margin-left: 40px;
 }
 & p {
     width: 850px;
     font-size: 20px;
-    font-family: 'Gantari';
+    font-family: 'Montserrat';
     color: #FAEAA7;
     margin-left: 40px;
     margin-top: -10px;
+    
 }
 & span {
     font-size: 20px;
-    font-family: 'Gantari';
+    font-family: 'Montserrat';
     color: #FAEAA7;
     font-style: italic;
 }
@@ -276,9 +273,10 @@ height: auto;
     font-size: 20px;
     margin-left: 40px;
     margin-top: 40px;
-    font-family: 'Gantari';
+    font-family: 'Montserrat';
     background-color: #FF004F;
     border: 1px solid #FF004F;
+    font-weight: bold;
     border-radius: 12px;
     color: #FAEAA7;
     cursor: pointer;
@@ -297,25 +295,20 @@ const SSection3 = styled.section`
 //background-size: cover;
 height: auto;
 & h1 {
-    font-family: 'Mukta';
+    font-family: 'Montserrat';
     color: #FAEAA7;
     font-size: 70px;
     margin-left: 40px;
     margin-top: 15px;
     margin-bottom: 35px;
-    /* text-decoration: overline;
-    text-decoration-color: #00F6EF; */
 }
 & .projects {
     display: grid ;
     grid-template-columns: auto auto auto auto;
     justify-content: start;
-    //margin-left: 45px;
-    //gap: 5px;
 }
 & .container {
   position: relative;
-  //width: 50%;
 }
 & .image {
   opacity: 1;
@@ -347,20 +340,20 @@ height: auto;
   font-size: 16px;
   
   margin-left: 160px;
-  font-family: 'Mukta';
+  font-family: 'Montserrat';
 }
 & .text h2 {
-    font-size: 50px;
+    font-size: 30px;
     margin-bottom: -25px;
 }
 & .text a {
-    font-size: 20px;
+    //font-size: 20px;
     text-decoration: none;
     color: #FAEAA7;
 }
 & .text h3 {
     background-color:#FF004F;
-    border-radius: 15px;
+    border-radius: 10px;
 }
 & .gif3 {
     text-align: center;
@@ -385,18 +378,16 @@ const SSection4 = styled.section`
 //background-size: auto;
 height: auto;
 & h1 {
-    font-family: 'Mukta';
+    font-family: 'Montserrat';
     color: #FAEAA7;
     font-size: 70px;
     margin-left: 40px;
     margin-bottom: -5px;
-    /* text-decoration: overline;
-    text-decoration-color: #00F6EF; */
 }
 & p{
     width: 950px;
     color: #FAEAA7;
-    font-family: 'Gantari';
+    font-family: 'Montserrat';
     font-style: italic;
     text-align: left;
     font-size: 20px;
@@ -423,7 +414,7 @@ height: auto;
     border: 1px solid #008037;
     background-color: #008037;
     color: #FAEAA7;
-    font-family: 'Gantari';
+    font-family: 'Montserrat';;
     border-radius: 10px;
     cursor: pointer;
 }
@@ -434,7 +425,7 @@ height: auto;
     border: 1px solid #FF1616;
     background-color: #FF1616;
     color: #FAEAA7;
-    font-family: 'Gantari';
+    font-family: 'Montserrat';;
     border-radius: 10px;
     cursor: pointer;
 }
@@ -443,6 +434,7 @@ height: auto;
     grid-template-columns: auto auto;
     justify-content: center;
     margin-right: 150px;
+    margin-top: -25px;
    
 }
 & .form1 input {
@@ -460,7 +452,7 @@ height: auto;
       font-style: italic;
       padding-left: 10px;
       opacity: 0.5;
-      font-family: 'Gantari';
+      font-family: 'Montserrat';;
     }
 }
 & .form2 input {
@@ -478,7 +470,7 @@ height: auto;
       font-style: italic;
       padding-left: 10px;
       opacity: 0.5;
-      font-family: 'Gantari';
+      font-family: 'Montserrat';;
     }
 }
 & .textarea textarea {
@@ -489,7 +481,7 @@ height: auto;
     background-color: #05263B;
     border: 1px solid #05263B;
     color: #FAEAA7;
-    font-family: 'Gantari';
+    font-family: 'Montserrat';;
     font-size: 20px;
     padding-left: 10px;
     ::placeholder {
@@ -498,7 +490,7 @@ height: auto;
       font-style: italic;
       padding-left: 10px;
       opacity: 0.5;
-      font-family: 'Gantari';
+      font-family: 'Montserrat';;
     }
 }
 & li {
@@ -513,6 +505,13 @@ height: auto;
   height: 2px;
   background-image: linear-gradient(to right, transparent, #00F6EF, transparent);
 }
+& h2 {
+    color: #FAEAA7;
+    font-family: 'Montserrat';;
+    font-style: italic;
+    margin-left: 90px;
+    font-weight: 100;
+}
 `
 const SFooter = styled.section`
     display: flex;
@@ -521,7 +520,7 @@ const SFooter = styled.section`
     height: auto;
 & a {
     color: #FF004F;
-    font-family: 'Gantari';
+    font-family: 'Montserrat';;
     text-transform: lowercase;
     font-size: 40px;
     font-weight: bold;
@@ -551,7 +550,7 @@ justify-content: space-between;
     margin-left: 25px;
     list-style-type: none;
     font-size: 35px;
-    font-family: 'Gantari';
+    font-family: 'Montserrat';
     color: #FAEAA7;
     font-style: normal;
     cursor: pointer;

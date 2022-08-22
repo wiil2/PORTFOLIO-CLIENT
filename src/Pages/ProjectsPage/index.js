@@ -82,7 +82,7 @@ export default ProjectsPage;
 const SContainer = styled.div`
 height: auto;
 & .title {
-    font-family: 'Mukta';
+    font-family: "Montserrat";
     color: #FAEAA7;
     font-size: 40px;
     margin-left: 40px;
@@ -96,7 +96,7 @@ height: auto;
 }
 & h2 {
   width: 650px;
-  font-family: 'Mukta';
+  font-family: "Montserrat";
   color: #FAEAA7;
   font-weight: 200;
 }
@@ -121,7 +121,7 @@ height: auto;
     border-radius: 5px;
     background-color: #0D3057;
     margin-left: 5px;
-    font-family: 'Mukta';
+    font-family: "Montserrat";
     color: #FAEAA7;
     font-size: 25px;
   }
@@ -132,7 +132,7 @@ height: auto;
   & button {
     border-radius: 5px;
     margin-left: 5px;
-    font-family: 'Mukta';
+    font-family: "Montserrat";
     color: #FAEAA7;
     font-size: 25px;
   }
@@ -146,7 +146,7 @@ height: auto;
   background-color: #FF1616;
 }
 & hr {
-  margin-top: 40px;
+  margin-top: 109px;
   border: 0;
   height: 2px;
   background-image: linear-gradient(to right, transparent, #00F6EF, transparent);

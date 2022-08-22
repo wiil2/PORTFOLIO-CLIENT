@@ -11,7 +11,7 @@ import ProjectEdit from "./Pages/ProjectEdit";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { ProtectedRoute } from "./Components/ProtectedRoute";
-
+import ErrorPage from "./Pages/ErrorPage";
 
 
 
@@ -28,6 +28,7 @@ function App() {
           <Route path="/createProject" element= { <ProtectedRoute component={Projects}/> } />
           <Route path="/projects/:id" element= { <ProjectsPage/> } />
           <Route path="/update-project/:id" element= { <ProtectedRoute component={ProjectEdit}/> } />
+          <Route path="*" element={ <ErrorPage /> }/>
         </Routes>
       </AuthContextComponent>
     </>

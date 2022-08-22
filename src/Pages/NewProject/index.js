@@ -148,13 +148,13 @@ const SContainer = styled.div`
   & h1 {
     text-decoration: overline;
     text-decoration-color: #ff004f;
-    font-family: "Mukta";
+    font-family: "Montserrat";
     color: #faeaa7;
     font-size: 60px;
     margin-left: 40px;
   }
   & h4 {
-    font-family: "Mukta";
+    font-family: "Montserrat";
     color: #faeaa7;
     font-size: 25px;
     margin-right: 40px;
@@ -179,7 +179,7 @@ const SMiddle = styled.div`
     border: 1px solid #05263B;
     background-color: #05263B;
     color: #faeaa7;
-    font-family: "Gantari";
+    font-family: "Montserrat";
     padding-left: 15px;
     //border-radius: 15px;
   }
@@ -191,12 +191,9 @@ const SMiddle = styled.div`
     border: 1px solid #05263B;
     background-color: #05263B;
     color: #faeaa7;
-    font-family: "Gantari";
+    font-family: "Montserrat";
     padding-left: 15px;
   }  
-  & .forms2 {
-    //border: 3px solid yellow;
-  }
   & .forms2 input {
     width: 584px;
     height: 50px;
@@ -205,11 +202,8 @@ const SMiddle = styled.div`
     border: 1px solid #05263B;
     background-color: #05263B;
     color: #faeaa7;
-    font-family: "Gantari";
+    font-family: "Montserrat";
     padding-left: 15px;
-  }
-  & .forms3 {
-    //border: 3px solid pink;
   }
   & .forms3 textarea {
     width: 585px;
@@ -219,7 +213,7 @@ const SMiddle = styled.div`
     border: 1px solid #05263B;
     background-color: #05263B;
     color: #faeaa7;
-    font-family: "Gantari";
+    font-family: "Montserrat";
     padding-left: 15px;
     resize: none;
   }
@@ -233,7 +227,7 @@ const SMiddle = styled.div`
     width: 400px;
   }
   & .forms4 h3 {
-    font-family: "Mukta";
+    font-family: "Montserrat";
     color: #faeaa7;
     margin-bottom: 2px;
     font-weight: 100;
@@ -244,7 +238,6 @@ const SMiddle = styled.div`
     margin-right: 80px;
   }
   & .photo img {
-    //border-radius: 100px;
     width: 450px;
     margin-bottom: 20px;
     margin-top:  10px;
@@ -256,8 +249,7 @@ const SMiddle = styled.div`
     background-color: transparent;
     align-items: center;
     border-radius: 5px;
-    //padding: 5px 70px;
-    font-family: "Mukta";
+    font-family: "Montserrat";
     font-size: 20px;
     margin-left: 80px;
   }
@@ -267,7 +259,7 @@ const SMiddle = styled.div`
     border: 1px solid #008037;
     align-items: center;
     border-radius: 5px;
-    font-family: "Mukta";
+    font-family: "Montserrat";
     font-size: 30px;
     font-style: italic;
     margin: 3px;

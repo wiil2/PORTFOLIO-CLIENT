@@ -251,13 +251,13 @@ export default ProfileEdit;
 const SContainer = styled.div`
   
   & h1 {
-    font-family: "Mukta";
+    font-family: "Montserrat";
     color: #faeaa7;
     font-size: 60px;
     margin-left: 40px;
   }
   & h4 {
-    font-family: "Mukta";
+    font-family: "Montserrat";
     color: #faeaa7;
     font-size: 25px;
     margin-right: 40px;
@@ -274,7 +274,7 @@ const SContainer = styled.div`
     
     align-items: center;
     border-radius: 5px;
-    font-family: "Mukta";
+    font-family: "Montserrat";
     font-size: 20px;
     font-style: italic;
     margin: 3px;
@@ -284,10 +284,12 @@ const SContainer = styled.div`
   & #confirm {
     border: 1px solid #008037;
     background-color: #008037;
+    cursor: pointer;
   }
   & #delete {
     border: 1px solid #FF1616;
     background-color: #FF1616;
+    cursor: pointer;
   }
   & #header {
     display: flex;
@@ -306,7 +308,7 @@ const SMiddle = styled.div`
     border: 1px solid #05263B;
     background-color: #05263B;
     color: #faeaa7;
-    font-family: "Gantari";
+    font-family: "Montserrat";
     padding-left: 15px;
     //border-radius: 15px;
   }
@@ -318,7 +320,7 @@ const SMiddle = styled.div`
     border: 1px solid #05263B;
     background-color: #05263B;
     color: #faeaa7;
-    font-family: "Gantari";
+    font-family: "Montserrat";
     padding-left: 15px;
   }
   & .forms3 textarea {
@@ -329,17 +331,17 @@ const SMiddle = styled.div`
     border: 1px solid #05263B;
     background-color: #05263B;
     color: #faeaa7;
-    font-family: "Gantari";
+    font-family: "Montserrat";
     padding-left: 15px;
     resize: none;
   }
   & .social-media h2 {
-    font-family: "Mukta";
+    font-family: "Montserrat";
     color: #faeaa7;
     margin-bottom: 2px;
   }
   & .social-media h3 {
-    font-family: "Mukta";
+    font-family: "Montserrat";
     color: #faeaa7;
     margin-bottom: 2px;
     font-weight: 100;
@@ -354,7 +356,6 @@ const SMiddle = styled.div`
     width: 400px;
   }
   & .photo {
-    //border: 3px solid gray;
     display: flex;
     flex-direction: column;
   }
@@ -372,7 +373,7 @@ const SMiddle = styled.div`
     align-items: center;
     border-radius: 5px;
     //padding: 5px 70px;
-    font-family: "Mukta";
+    font-family: "Montserrat";
     font-size: 20px;
   }
 `;

@@ -89,7 +89,7 @@ background-position: center;
     margin-top: 10px;
     background-color: #D9D9D9;
     color:#5D5E5F;
-    font-family: "Mukta";
+    font-family: "Montserrat";
     font-weight: 600;
     font-size: 20px;
     
@@ -110,7 +110,7 @@ background-position: center;
     margin-top: 10px;
     background-color: #D9D9D9;
     color:#5D5E5F;
-    font-family: "Mukta";
+    font-family: "Montserrat";
     font-weight: 600;
     font-size: 20px;
     
@@ -124,26 +124,27 @@ background-position: center;
 }
 
 & button {
-    width: 292px;
+    width: 305px;
     border: 1px solid #040A18;
     border-radius: 5px;
     padding: 10px 87px;
     margin-top: 10px;
     background-color: #040A18;
     color: white;
-    font-family: "Mukta";
+    font-family: "Montserrat";
     cursor: pointer;
     font-size: 20px;
 }
 & h3 {
     text-align: center;
     color: white;
-    font-family: "Mukta";
+    font-family: "Montserrat";
     font-size: 20px;
     background-color: #05263B;
     opacity: 0.8;
     border-radius: 15px;
     font-style: italic;
+    padding: 10px;
 }
 & a {
     text-decoration: none;

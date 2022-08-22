@@ -173,8 +173,9 @@ export default ProjectEdit;
 
 // =========================== STYLES ============================= //
 const SContainer = styled.div`
+height: 617px;
   & h1 {
-    font-family: "Mukta";
+    font-family: "Montserrat";
     color: #faeaa7;
     font-size: 60px;
     margin-left: 40px;
@@ -182,7 +183,7 @@ const SContainer = styled.div`
     margin-bottom: 10px;
   }
   & h4 {
-    font-family: "Mukta";
+    font-family: "Montserrat";
     color: #faeaa7;
     font-size: 25px;
     margin-right: 40px;
@@ -208,7 +209,7 @@ justify-content: space-between;
     border: 1px solid #14202e;
     background-color: #14202e;
     color: #faeaa7;
-    font-family: "Gantari";
+    font-family: "Montserrat";
     padding-left: 15px;
     margin-left: 40px;
     
@@ -221,7 +222,7 @@ justify-content: space-between;
     border: 1px solid #14202e;
     background-color: #14202e;
     color: #faeaa7;
-    font-family: "Gantari";
+    font-family: "Montserrat";
     padding-left: 15px;
   }  
   & .forms2 input {
@@ -232,7 +233,7 @@ justify-content: space-between;
     border: 1px solid #14202e;
     background-color: #14202e;
     color: #faeaa7;
-    font-family: "Gantari";
+    font-family: "Montserrat";
     padding-left: 15px;
     margin-left: 40px;
   }
@@ -244,7 +245,7 @@ justify-content: space-between;
     border: 1px solid #14202e;
     background-color: #14202e;
     color: #faeaa7;
-    font-family: "Gantari";
+    font-family: "Montserrat";
     padding-left: 15px;
     resize: none;
     margin-left: 40px;
@@ -266,7 +267,7 @@ justify-content: space-between;
     background-color: transparent;
     align-items: center;
     border-radius: 5px;
-    font-family: "Mukta";
+    font-family: "Montserrat";
     font-size: 20px;
     margin-left: 80px;
   }
@@ -277,7 +278,7 @@ justify-content: space-between;
     color: #faeaa7;
     align-items: center;
     border-radius: 5px;
-    font-family: "Mukta";
+    font-family: "Montserrat";
     font-size: 20px;
     font-style: italic;
     margin: 3px;
@@ -294,7 +295,7 @@ justify-content: space-between;
     background-color: #FF1616;
   }
   & .links h3 {
-    font-family: "Mukta";
+    font-family: "Montserrat";
     color: #faeaa7;
     margin-bottom: 2px;
     font-weight: 100;
