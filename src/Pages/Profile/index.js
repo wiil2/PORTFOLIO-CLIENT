@@ -227,8 +227,8 @@ height: auto;
     text-align: center;
 & img {
     width: 80px;
-    margin-top: 88px;
-    margin-bottom: 20px;
+    margin-top: 125px;
+    //margin-bottom: -10px;
 }
 }
 & #meuVideo {
@@ -246,7 +246,7 @@ height: auto;
     color: #FAEAA7;
     font-size: 70px;
     margin-left: 40px;
-    margin-bottom: -5px;
+    margin-bottom: 75px;
 }
 & h2 {
     font-size: 25px;
@@ -286,7 +286,7 @@ height: auto;
     text-align: center;
 & img {
     width: 80px;
-    margin-top: 58px;
+    margin-top: 98px;
 }
 }
 `;

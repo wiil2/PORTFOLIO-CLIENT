@@ -159,7 +159,7 @@ const SFooter = styled.section`
     align-items: center;
 & a {
     color: #FAEAA7;
-    font-family: 'Gantari';
+    font-family: "Montserrat";
     text-transform: lowercase;
     font-size: 30px;
     font-weight: bold;
