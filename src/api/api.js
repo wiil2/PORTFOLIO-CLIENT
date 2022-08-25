@@ -3,7 +3,7 @@ import axios from "axios";
 
 const apiURLs = {
     development: "http://localhost:4000",
-    production: ""
+    production: "https://deploy-portfolio-backend.herokuapp.com"
 };
 
 
