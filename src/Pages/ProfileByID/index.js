@@ -65,7 +65,7 @@ export function ProfileByID() {
             </video>
             <SHeader>
                 <div>
-                    <img className="photo" src={loggedInUser.img} alt="imagem de perfil"  id="perfil"/>
+                    <img className="photo" src={loggedInUser.img || ""} alt="imagem de perfil"  id="perfil"/>
                 </div>
 
                 {loggedInUser ?  
