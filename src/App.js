@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom"
 import { Signup } from "./Pages/Signup";
 import { Login } from "./Pages/Login";
 import Profile from "./Pages/Profile";
+import ProfileByID from "./Pages/ProfileByID"
 import { AuthContextComponent } from "./contexts/authContext";
 import ProfileEdit from "./Pages/ProfileEdit";
 import "../src/index.css"
@@ -24,6 +25,7 @@ function App() {
           <Route path="/"  element= { <Login/>  } />
           <Route path="/signup" element= { <Signup/> } />
           <Route path="/profile" element= { <Profile/> } />
+          <Route path="/profile/:id" element= { <ProfileByID/>} />
           <Route path="/profileEdit" element= { <ProtectedRoute component={ProfileEdit}/> } />
           <Route path="/createProject" element= { <ProtectedRoute component={Projects}/> } />
           <Route path="/projects/:id" element= { <ProjectsPage/> } />
