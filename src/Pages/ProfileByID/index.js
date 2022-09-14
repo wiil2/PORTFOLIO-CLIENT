@@ -12,19 +12,19 @@ import Whats from "../Assets/3.png"
 import LogOut from "../Assets/logout.png"
 import Configs from "../Assets/configs.png"
 import More from "../Assets/more.png"
-import Video from "../Assets/bg-video.mp4"  
+import Video from "../Assets/bg-video.mp4"
 
 
 export function ProfileByID() {
 
     const navigate = useNavigate();
-    const [ pageYPosition, setPageYPosition ] = useState(0);
+    const [pageYPosition, setPageYPosition] = useState(0);
     const { id } = useParams();
-    const [ loggedInUser, setLoggedInUser ] = useState({});
+    const [loggedInUser, setLoggedInUser] = useState({});
 
     console.log("console dos projetos", loggedInUser)
     useEffect(() => {
-        async function fetchUser(){
+        async function fetchUser() {
             const response = await api.get(`/user/profile/${id}`)
             setLoggedInUser(response.data[0])
             console.log("console aqui", response)
@@ -42,7 +42,7 @@ export function ProfileByID() {
         setPageYPosition(window.scrollY);
     }
 
-    function handleSubmit(e){
+    function handleSubmit(e) {
 
         toast.success("Email enviado com sucesso!", {
             position: "top-left",
@@ -58,122 +58,123 @@ export function ProfileByID() {
     window.addEventListener('scroll', getPageYAfterScroll);
 
     return (
-    <div id="container">
-        <SSection1>
-            <video autoPlay loop muted id="meuVideo">
-                <source src={Video} type="video/mp4" />
-            </video>
-            <SHeader>
-                <div>
+        <div id="container">
+            <SSection1>
+                <video autoPlay loop muted id="meuVideo">
+                    <source src={Video} type="video/mp4" />
+                </video>
+                <SHeader>
+                    {/* <div>
                     <img className="photo" src={loggedInUser.img || ""} alt="imagem de perfil"  id="perfil"/>
+                </div> */}
+
+                    {loggedInUser ?
+                        (<div className="content2">
+                            <Link to="/profileEdit"><img src={Configs} alt="" id="configs" /></Link>
+                            <button onClick={handleLogOut}><img src={LogOut} alt="" id="quit" /></button>
+                        </div>) : null}
+                </SHeader>
+
+                <div>
+                    <h1>Oi, eu sou {loggedInUser.name}! </h1>
+                    <span className="front">{loggedInUser.denomination}</span> <span className="dev">developer</span>
                 </div>
 
-                {loggedInUser ?  
-                (<div className="content2">
-                    <Link to="/profileEdit"><img src={Configs} alt="" id="configs"/></Link>
-                    <button onClick={handleLogOut}><img src={LogOut} alt="" id="quit"/></button>
-                </div>) : null}
-            </SHeader>
+                <div className="gif1">
+                    <a href="#section2"><img src="https://static.wixstatic.com/media/3a5df9_81b94f0536ef4a379857d7195426117c~mv2.gif" alt="gif" /></a>
+                </div>
 
-            <div>
-                <h1>Oi, eu sou {loggedInUser.name}! </h1>
-                <span className="front">{loggedInUser.denomination}</span> <span className="dev">developer</span>
-            </div>
+            </SSection1>
 
-            <div className="gif1">
-                <a href="#section2"><img src="https://static.wixstatic.com/media/3a5df9_81b94f0536ef4a379857d7195426117c~mv2.gif" alt="gif"/></a>
-            </div>
-
-        </SSection1>
-
-        <SSection2 id="section2">
-            <div className="header1">
-                <h1> um pouco sobre mim...</h1>
-            </div>
-            <div>
+            <SSection2 id="section2">
+                <div className="header1">
+                    <h1> um pouco sobre mim...</h1>
+                </div>
+                <div>
                     <h2> {loggedInUser.name}, {loggedInUser.age}</h2>
                     <p>  {loggedInUser.description} </p>
                     <h2>Habilidades</h2>
                     <p>{loggedInUser.skills}</p>
                     <a href={loggedInUser.curriculo} download="curriculo" target="_blank" rel="noreferrer"><button>MEU CURRÍCULO</button></a> <span> - Vamos desenvolver juntos?</span>
-            </div>
-            <div className="gif2">
-                <a href="#section3"><img src="https://static.wixstatic.com/media/3a5df9_81b94f0536ef4a379857d7195426117c~mv2.gif" alt="gif"/></a>
-            </div>
-        </SSection2>
+                </div>
+                <div className="gif2">
+                    <a href="#section3"><img src="https://static.wixstatic.com/media/3a5df9_81b94f0536ef4a379857d7195426117c~mv2.gif" alt="gif" /></a>
+                </div>
+            </SSection2>
 
-        <SSection3 id="section3">
-            <div className="header">
-                <h1>meus projetos</h1>
+            <SSection3 id="section3">
+                <div className="header">
+                    <h1>meus projetos</h1>
 
-                { loggedInUser ? 
-                (<Link to="/createProject"><img src={More} alt=""/></Link>) : null } 
-            </div>
-            <div className="projects">
-                { loggedInUser.projects &&
-                    loggedInUser.projects.map((currentProjects) => {
-                        const { name, tags, img, _id : id } = currentProjects;
-                    return (
-                            <div className="container" key={id}>
-                                { tags.includes("FINALIZADO") ? <img src={img} alt="" className="image"/> : null }
-                                { tags.includes("EM ANDAMENTO") ? <img src={img} alt="" className="image"/> : null }
-                                <div className="middle">
-                                    <div className="text">
-                                        <h2>{name}</h2>
-                                        <Link to={`/projects/${id}`}><h3>ver mais</h3></Link>
+                    {loggedInUser ?
+                        (<Link to="/createProject"><img src={More} alt="" /></Link>) : null}
+                </div>
+                <div className="projects">
+                    {loggedInUser.projects &&
+                        loggedInUser.projects.map((currentProjects) => {
+                            const { name, tags, img, _id: id } = currentProjects;
+                            return (
+                                <div className="container" key={id}>
+                                    {tags.includes("FINALIZADO") ? <img src={img} alt="" className="image" /> : null}
+                                    {tags.includes("EM ANDAMENTO") ? <img src={img} alt="" className="image" /> : null}
+                                    <div className="middle">
+                                        <div className="text">
+                                            <h2>{name}</h2>
+                                            <Link to={`/projects/${id}`}><h3>ver mais</h3></Link>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                    )})}
-            </div>
-            <div className="gif3">
-                <a href="#contato"><img src="https://static.wixstatic.com/media/3a5df9_81b94f0536ef4a379857d7195426117c~mv2.gif" alt="gif"/></a>
-            </div>
-        </SSection3>
-
-        <SSection4 id="contato">
-            <h1>entre em contato comigo</h1>
-            <p>Estou interessado em {loggedInUser.interests}. Mas se tiver outra solicitação ou pergunta, preenche o formulário abaixo:</p>
-            
-            <div className="bottom">
-
-                <form action={`https://formsubmit.co/${loggedInUser.email}`} method="POST" className="forms" onSubmit={handleSubmit}>
-                    <input type="hidden" name="_next" value="http://localhost:3000/profile#contato" />
-                    <input type="hidden" name="_captcha" value="false"/>
-
-                    <div className="form1">
-                        <input type="text" name="name" placeholder="seu nome"/>
-                        <input type="email" name="email" placeholder="seu email"/>
-                    </div>
-                    <div className="form2">
-                        <input type="subject" name="subject" placeholder="qual o assunto?"/>
-                    </div>
-                    <div className="textarea">
-                        <textarea name="message" placeholder="digite aqui sua mensagem"/>
-                    </div>
-                    <input id="enviar" type="submit" value="Enviar" />
-                    <input id="limpar" type="reset" value="Limpar"/>
-                </form>
-
-                <div>
-                    <h2>Visite minhas redes sociais</h2>
-                    <ul id="social-media">
-                        <a href={loggedInUser.linkedin} target="_blank" rel="noreferrer"><li><img src={Linkedin} alt=""/></li></a>
-                        <a href={loggedInUser.instagram} target="_blank" rel="noreferrer"><li><img src={Instagram} alt=""/></li></a>
-                        <a target="_blank" href={`https://api.whatsapp.com/send?1=pt_BR&phone=55${loggedInUser.phone}`} rel="noreferrer"><li><img src={Whats} alt=""/></li></a>
-                        <a href={loggedInUser.github} target="_blank" rel="noreferrer"><li><img src={GitHub} alt=""/></li></a>
-                    </ul>
+                            )
+                        })}
                 </div>
+                <div className="gif3">
+                    <a href="#contato"><img src="https://static.wixstatic.com/media/3a5df9_81b94f0536ef4a379857d7195426117c~mv2.gif" alt="gif" /></a>
+                </div>
+            </SSection3>
 
-            </div>
-            <hr></hr>
-            
-        </SSection4>
+            <SSection4 id="contato">
+                <h1>entre em contato comigo</h1>
+                <p>Estou interessado em {loggedInUser.interests}. Mas se tiver outra solicitação ou pergunta, preenche o formulário abaixo:</p>
 
-        <SFooter>
-            { pageYPosition > 900 && <a href="#container">VOLTAR AO TOPO</a> }
-        </SFooter>
-    </div>
+                <div className="bottom">
+
+                    <form action={`https://formsubmit.co/${loggedInUser.email}`} method="POST" className="forms" onSubmit={handleSubmit}>
+                        <input type="hidden" name="_next" value="http://localhost:3000/profile#contato" />
+                        <input type="hidden" name="_captcha" value="false" />
+
+                        <div className="form1">
+                            <input type="text" name="name" placeholder="seu nome" />
+                            <input type="email" name="email" placeholder="seu email" />
+                        </div>
+                        <div className="form2">
+                            <input type="subject" name="subject" placeholder="qual o assunto?" />
+                        </div>
+                        <div className="textarea">
+                            <textarea name="message" placeholder="digite aqui sua mensagem" />
+                        </div>
+                        <input id="enviar" type="submit" value="Enviar" />
+                        <input id="limpar" type="reset" value="Limpar" />
+                    </form>
+
+                    <div>
+                        <h2>Visite minhas redes sociais</h2>
+                        <ul id="social-media">
+                            <a href={loggedInUser.linkedin} target="_blank" rel="noreferrer"><li><img src={Linkedin} alt="" /></li></a>
+                            <a href={loggedInUser.instagram} target="_blank" rel="noreferrer"><li><img src={Instagram} alt="" /></li></a>
+                            <a target="_blank" href={`https://api.whatsapp.com/send?1=pt_BR&phone=55${loggedInUser.phone}`} rel="noreferrer"><li><img src={Whats} alt="" /></li></a>
+                            <a href={loggedInUser.github} target="_blank" rel="noreferrer"><li><img src={GitHub} alt="" /></li></a>
+                        </ul>
+                    </div>
+
+                </div>
+                <hr></hr>
+
+            </SSection4>
+
+            <SFooter>
+                {pageYPosition > 900 && <a href="#container">VOLTAR AO TOPO</a>}
+            </SFooter>
+        </div>
     )
 }
 
@@ -517,7 +518,7 @@ justify-content: space-between;
 & img {
   width: 200px;
   margin-top: 30px;
-  margin-left: 40px;
+  //margin-left: 40px;
   border-left: solid 3px #FF004F;
   border-right: solid 3px #00F6EF;
   border-radius: 100px;
@@ -549,14 +550,14 @@ justify-content: space-between;
 & #quit {
     border: none;
     width: 90px;
-    margin-right: 50px;
+    margin-left: 50px;
     cursor: pointer;
 
 }
 & #configs {
     border: none;
     width: 80px;
-    margin-left: 830px;
+    margin-left: 1100px;
     cursor: pointer;
 }
 `;
